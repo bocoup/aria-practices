@@ -30,6 +30,3 @@ module.exports = function getJSON(url) {
     });
   }).then((rawData) => JSON.parse(rawData));
 };
-
-// We didn't change what was being done, we just made the path to get their
-// easier architecturally.
