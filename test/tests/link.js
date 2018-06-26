@@ -85,7 +85,7 @@ ariaTest('link/link.html', 'aria-label', async (t) => {
 
 ariaTest('link/link.html', 'key-enter', async (t) => {
   for (let i = 0; i < pageExamples.length; i++) {
-    await t.context.session.get(t.context.url);
+    await t.context.getUrlAndWait(t.context.url);
 
     let ex = pageExamples[i];
     let linkLocator = t.context.By.css(ex.linkSelector);

@@ -28,6 +28,15 @@ test.beforeEach((t) => {
   t.context.By = webdriver.By;
   t.context.Key = webdriver.Key;
   t.context.until = webdriver.until;
+
+  t.context.getUrlAndWait = async function(url) {
+    await t.context.session.get(url);
+    await t.context.session.wait(() => {
+      return t.context.session.getCurrentUrl().then(currenturl => {
+        return url == url;
+      });
+    }, 1000);
+  }
 });
 
 test.after.always(() => {
@@ -51,7 +60,7 @@ const ariaTest = (page, testId, body) => {
 
   test.serial(page + ' ' + selector, async function (t) {
     t.context.url = url;
-    await t.context.session.get(url);
+    await t.context.getUrlAndWait(t.context.url);
 
     t.is(
       (await t.context.session.findElements(t.context.By.css(selector))).length,
