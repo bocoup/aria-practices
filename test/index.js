@@ -8,7 +8,8 @@ const { By } = require('selenium-webdriver');
 const startGeckodriver = require('./util/start-geckodriver');
 
 let session, geckodriver;
-const firefoxArgs = process.env.CI ? [ '-headless' ] : [];
+const firefoxArgs = [ '-headless' ];
+//const firefoxArgs = process.env.CI ? [ '-headless' ] : [];
 
 test.before(async (t) => {
   geckodriver = await startGeckodriver(1022, 12 * 1000);
