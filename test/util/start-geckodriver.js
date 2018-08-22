@@ -16,7 +16,7 @@ const startOnPort = (port, timeout) => {
   }
 
   const start = Date.now();
-  const child = spawn(binaryPath, ['--port', port]);
+  const child = spawn(binaryPath, ['--port', port, '-v'], {stdio: 'inherit'});
 
   return new Promise((resolve, reject) => {
     let stopPolling = false;
