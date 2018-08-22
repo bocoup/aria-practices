@@ -44,7 +44,7 @@ const startOnPort = (t, port, timeout) => {
 
           child.removeListener('close', giveUp);
           resolve(() => {
-            t.log("killing child at port: " + port);
+            t.log('killing child at port: ' + port);
             child.kill();
           });
         })
