@@ -32,13 +32,12 @@ function bindPort (port) {
  * @returns {Promise} eventual value which shares the resolution of the
  *                    provided operation
  */
-module.exports = function forceSerial (t, port, safe) {
-  t.log('port in forceSerial: ' + port);
+module.exports = function forceSerial (port, safe) {
   return bindPort(port)
     .then((release) => {
       if (!release) {
         return new Promise((resolve) => setTimeout(resolve, 300))
-          .then(() => forceSerial(t, port, safe));
+          .then(() => forceSerial(port, safe));
       }
       const operation = new Promise((resolve) => resolve(safe()));
 

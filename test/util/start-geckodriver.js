@@ -76,5 +76,5 @@ const startOnAnyPort = (t, port, timeout) => {
  *                               the server.
  */
 module.exports = (t, port, timeout) => {
-  return forceSerial(t, SERIES_LOCK, () => startOnAnyPort(t, port, timeout));
+  return forceSerial(SERIES_LOCK, () => startOnAnyPort(t, port, timeout));
 };
