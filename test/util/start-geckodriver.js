@@ -40,6 +40,7 @@ const startOnPort = (t, port, timeout) => {
 
       getJSON('http://localhost:' + port + '/status')
         .then((data) => {
+          t.log('got json from port: ' + port);
           t.log(data);
           assert(data.value.ready);
 
