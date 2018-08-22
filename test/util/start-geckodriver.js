@@ -15,8 +15,14 @@ const startOnPort = (port, timeout) => {
     ));
   }
 
+  const fs = require('fs');
+
   const start = Date.now();
-  const child = spawn(binaryPath, ['--port', port, '-v'], {stdio: 'inherit'});
+  const child = spawn(binaryPath, ['--port', port, '-v']);
+
+  child.stdout.on('data', function (data) {
+    fs.appendFile('./logs/' + port + '-log.txt', data.toString(), (err) => { if (err) {throw err;} });
+  });
 
   return new Promise((resolve, reject) => {
     let stopPolling = false;
@@ -42,7 +48,7 @@ const startOnPort = (port, timeout) => {
           assert(data.value.ready);
 
           child.removeListener('close', giveUp);
-          resolve(() => child.kill());
+          resolve(() => { child.kill(); });
         })
         .catch(() => setTimeout(poll, 500));
     }());
