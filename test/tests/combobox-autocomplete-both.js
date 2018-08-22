@@ -18,10 +18,6 @@ const ex = {
   numCharFirstAOption: 6
 };
 
-const reload = async (session) => {
-  return session.get(await session.getCurrentUrl());
-};
-
 const waitForFocusChange = async (t, textboxSelector, originalFocus) => {
   try {
     await t.context.session.wait(async function () {
@@ -44,6 +40,10 @@ const confirmCursorIndex = async (t, selector, cursorIndex) => {
     return item.selectionStart === cursorIndex;
     // return item.selectionStart;
   }, selector, cursorIndex);
+};
+
+const exampleInitialized = async function () {
+  return await new Promise((resolve) => setTimeout(resolve, 3000));
 };
 
 // Attributes
@@ -170,6 +170,7 @@ ariaTest('Test down key press with focus on textbox',
   exampleFile, 'textbox-key-down-arrow', async (t) => {
 
     t.plan(2);
+    await exampleInitialized();
 
     // Send ARROW_DOWN to the textbox
     await t.context.session
@@ -191,6 +192,7 @@ ariaTest('Test down key press with focus on list',
   exampleFile, 'listbox-key-down-arrow', async (t) => {
 
     t.plan(4);
+    await exampleInitialized();
 
     // Send 'a' to text box, then send ARROW_DOWN to textbox to set focus on listbox
     await t.context.session
@@ -220,6 +222,7 @@ ariaTest('Test up key press with focus on textbox',
   exampleFile, 'textbox-key-up-arrow', async (t) => {
 
     t.plan(2);
+    await exampleInitialized();
 
     // Send ARROW_UP to the textbox
     await t.context.session
@@ -242,6 +245,7 @@ ariaTest('Test up key press with focus on listbox',
   exampleFile, 'listbox-key-up-arrow', async (t) => {
 
     t.plan(3);
+    await exampleInitialized();
 
     // Send 'a' to text box, then send ARROW_UP to textbox to textbox to put focus in textbox
     // Up arrow should move selection to the last item in the list
@@ -270,6 +274,7 @@ ariaTest('Test enter key press with focus on textbox',
   exampleFile, 'textbox-key-enter', async (t) => {
 
     t.plan(2);
+    await exampleInitialized();
 
     // Send key "a" to the textbox
 
@@ -306,6 +311,7 @@ ariaTest('Test enter key press with focus on textbox',
 ariaTest('Test escape key press with focus on textbox',
   exampleFile, 'textbox-key-escape', async (t) => {
     t.plan(2);
+    await exampleInitialized();
 
     // Send key "a", then key ESCAPE to the textbox
 
@@ -329,6 +335,7 @@ ariaTest('Test escape key press with focus on textbox',
 ariaTest('Test escape key press with focus on textbox',
   exampleFile, 'listbox-key-escape', async (t) => {
     t.plan(2);
+    await exampleInitialized();
 
     // Send key "a" then key "ARROW_DOWN to put the focus on the listbox,
     // then key ESCAPE to the textbox
@@ -353,6 +360,7 @@ ariaTest('Test escape key press with focus on textbox',
 ariaTest('left arrow from focus on list puts focus on listbox and moves cursor right',
   exampleFile, 'listbox-key-left-arrow', async (t) => {
     t.plan(2);
+    await exampleInitialized();
 
     // Send key "a" then key "ARROW_DOWN" to put the focus on the listbox,
     // then key ESCAPE to the textbox
@@ -378,6 +386,7 @@ ariaTest('left arrow from focus on list puts focus on listbox and moves cursor r
 ariaTest('Right arrow from focus on list puts focus on listbox',
   exampleFile, 'listbox-key-right-arrow', async (t) => {
     t.plan(2);
+    await exampleInitialized();
 
     // Send key "a" then key "ARROW_DOWN" to put the focus on the listbox,
     // then key ESCAPE to the textbox
@@ -402,6 +411,7 @@ ariaTest('Right arrow from focus on list puts focus on listbox',
 ariaTest('Home arrow from focus on list puts focus on listbox and moves cursor',
   exampleFile, 'listbox-key-home', async (t) => {
     t.plan(2);
+    await exampleInitialized();
 
     // Send key "a" then key "ARROW_DOWN" to put the focus on the listbox,
     // then key ESCAPE to the textbox
@@ -426,6 +436,7 @@ ariaTest('Home arrow from focus on list puts focus on listbox and moves cursor',
 ariaTest('End arrow from focus on list puts focus on listbox',
   exampleFile, 'listbox-key-end', async (t) => {
     t.plan(2);
+    await exampleInitialized();
 
     // Send key "a" then key "ARROW_DOWN" to put the focus on the listbox,
     // then key ESCAPE to the textbox
