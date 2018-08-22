@@ -39,10 +39,14 @@ const startOnPort = (t, port, timeout) => {
 
       getJSON('http://localhost:' + port + '/status')
         .then((data) => {
+          t.log(data);
           assert(data.value.ready);
 
           child.removeListener('close', giveUp);
-          resolve(() => child.kill());
+          resolve(() => {
+            t.log("killing child at port: " + port);
+            child.kill();
+          });
         })
         .catch(() => setTimeout(poll, 500));
     }());
