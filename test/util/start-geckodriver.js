@@ -8,7 +8,7 @@ const getJSON = require('./get-json');
 const forceSerial = require('./force-serial');
 const SERIES_LOCK = 8432;
 
-const startOnPort = (port, timeout) => {
+const startOnPort = (t, port, timeout) => {
   if (timeout < 0) {
     return Promise.reject(new Error(
       'Timed out while locating free port for WebDriver server'
@@ -49,13 +49,13 @@ const startOnPort = (port, timeout) => {
   });
 };
 
-const startOnAnyPort = (port, timeout) => {
+const startOnAnyPort = (t, port, timeout) => {
   const start = Date.now();
 
-  return startOnPort(port, timeout)
+  return startOnPort(t, port, timeout)
     .then(function (stop) {
       if (!stop) {
-        return startOnAnyPort(port + 1, timeout - (Date.now() - start));
+        return startOnAnyPort(t, port + 1, timeout - (Date.now() - start));
       }
       return { stop, port };
     });
@@ -75,6 +75,6 @@ const startOnAnyPort = (port, timeout) => {
  *                               `stop` property is a function for destroying
  *                               the server.
  */
-module.exports = (port, timeout) => {
-  return forceSerial(SERIES_LOCK, () => startOnAnyPort(port, timeout));
+module.exports = (t, port, timeout) => {
+  return forceSerial(t, SERIES_LOCK, () => startOnAnyPort(t, port, timeout));
 };
