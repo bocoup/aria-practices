@@ -8,13 +8,13 @@ const { By } = require('selenium-webdriver');
 const startGeckodriver = require('./util/start-geckodriver');
 
 let session, geckodriver;
-//const firefoxArgs = process.env.CI ? [ '-headless' ] : [];
+// const firefoxArgs = process.env.CI ? [ '-headless' ] : [];
 const firefoxArgs = [ '-headless' ];
 
 test.before(async (t) => {
   geckodriver = await startGeckodriver(t, 1022, 12 * 1000);
   t.log(geckodriver.port);
-  t.log("everything is fine here");
+  t.log('everything is fine here');
   session = new webdriver.Builder()
     .usingServer('http://localhost:' + geckodriver.port)
     .withCapabilities({

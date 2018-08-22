@@ -33,7 +33,7 @@ function bindPort (port) {
  *                    provided operation
  */
 module.exports = function forceSerial (t, port, safe) {
-  t.log("port in forceSerial: " + port);
+  t.log('port in forceSerial: ' + port);
   return bindPort(port)
     .then((release) => {
       if (!release) {
