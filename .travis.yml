@@ -17,3 +17,8 @@ deploy:
   script: /tmp/deploy/travis-deploy.sh
   on:
     branch: master
+
+script:
+  - npm run regression
+  - grep "connection refused" ./logs/* -C 500
+  - grep "Failed to decode response from marionette" ./logs/* -C 500
