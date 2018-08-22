@@ -1,5 +1,7 @@
 'use strict';
 
+// Comment
+
 const path = require('path');
 const { test } = require('ava');
 const webdriver = require('selenium-webdriver');
