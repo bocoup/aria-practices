@@ -21,6 +21,7 @@ const startOnPort = (t, port, timeout) => {
   return new Promise((resolve, reject) => {
     let stopPolling = false;
     const giveUp = () => {
+      t.log('the child was closed');
       stopPolling = true;
       resolve(null);
     };
