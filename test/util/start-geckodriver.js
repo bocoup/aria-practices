@@ -18,7 +18,7 @@ const startOnPort = (port, timeout) => {
   const fs = require('fs');
 
   const start = Date.now();
-  const child = spawn(binaryPath, ['--port', port, '-v']);
+  const child = spawn(binaryPath, ['--port', port, '-vv']);
 
   child.stdout.on('data', function (data) {
     fs.appendFile('./logs/' + port + '-log.txt', data.toString(), (err) => { if (err) {throw err;} });
