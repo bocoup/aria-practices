@@ -52,9 +52,6 @@ const ariaTest = (desc, page, testId, body) => {
     t.context.url = url;
     await t.context.session.get(url);
 
-    // Wait for page to load to avoid marionette race condition
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
     const assert = require('assert');
     assert(
       (await t.context.session.findElements(By.css(selector))).length,
