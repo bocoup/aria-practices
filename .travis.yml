@@ -4,7 +4,7 @@ node_js:
   - "node"
 
 addons:
-  firefox: "60.1.0"
+  firefox: "61.0.2"
 
 git:
   depth: 3
