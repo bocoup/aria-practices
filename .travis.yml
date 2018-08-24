@@ -20,4 +20,4 @@ deploy:
 
 script:
   - npm run regression
-  - grep "Failed to decode response from marionette" ./logs/* -C 500
+  - grep "before Rejected promise returned by test" ./logs/* -C 500
