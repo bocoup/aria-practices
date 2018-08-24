@@ -94,10 +94,12 @@ ariaTest('"aria-labelledby" set on sliders', exampleFile, 'aria-labelledby', asy
 ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arrow', async (t) => {
   t.plan(12);
 
-  const sliders = await t.context.session.findElements(By.css(ex.sliderSelector));
+  let sliders = await t.context.session.findElements(By.css(ex.sliderSelector));
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // Send 1 key to red slider
-  const redSlider = sliders[0];
+  let redSlider = sliders[0];
   await redSlider.sendKeys(Key.ARROW_RIGHT);
 
   t.is(
@@ -115,6 +117,10 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
   //   await redSlider.sendKeys(Key.ARROW_RIGHT);
   // }
 
+  //
+  sliders = await t.context.session.findElements(By.css(ex.sliderSelector));
+  redSlider = sliders[0];
+
   await redSlider.sendKeys(Key.END);
   await redSlider.sendKeys(Key.ARROW_RIGHT);
 
@@ -128,8 +134,10 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
     'Display should match rgb(255, 0, 0)'
   );
 
+  //
+  sliders = await t.context.session.findElements(By.css(ex.sliderSelector));
   // Send 1 key to green slider
-  const greenSlider = sliders[1];
+  let greenSlider = sliders[1];
   await greenSlider.sendKeys(Key.ARROW_RIGHT);
 
   t.is(
@@ -147,6 +155,9 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
   //   await greenSlider.sendKeys(Key.ARROW_RIGHT);
   // }
 
+  //
+  sliders = await t.context.session.findElements(By.css(ex.sliderSelector));
+  greenSlider = sliders[1];
 
   await greenSlider.sendKeys(Key.END);
   await greenSlider.sendKeys(Key.ARROW_RIGHT);
@@ -161,8 +172,11 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
     'Display should match rgb(255, 255, 0)'
   );
 
+  //
+  sliders = await t.context.session.findElements(By.css(ex.sliderSelector));
+
   // Send 1 key to blue slider
-  const blueSlider = sliders[2];
+  let blueSlider = sliders[2];
   await blueSlider.sendKeys(Key.ARROW_RIGHT);
 
   t.is(
@@ -179,6 +193,10 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
   // for (let i = 0; i < 260; i++) {
   //   await blueSlider.sendKeys(Key.ARROW_RIGHT);
   // }
+
+  //
+  sliders = await t.context.session.findElements(By.css(ex.sliderSelector));
+  blueSlider = sliders[2];
 
   await blueSlider.sendKeys(Key.END);
   await blueSlider.sendKeys(Key.ARROW_RIGHT);
