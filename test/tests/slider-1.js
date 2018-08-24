@@ -110,10 +110,13 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
     'Display should match rgb(1, 0, 0)'
   );
 
-  // Send more than 255 keys to red slider
-  for (let i = 0; i < 260; i++) {
-    await redSlider.sendKeys(Key.ARROW_RIGHT);
-  }
+  // // Send more than 255 keys to red slider
+  // for (let i = 0; i < 260; i++) {
+  //   await redSlider.sendKeys(Key.ARROW_RIGHT);
+  // }
+
+  await redSlider.sendKeys(Key.END);
+  await redSlider.sendKeys(Key.ARROW_RIGHT);
 
   t.is(
     await redSlider.getAttribute('aria-valuenow'),
@@ -139,10 +142,14 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
     'Display should match rgb(255, 1, 0)'
   );
 
-  // Send more than 255 keys to green slider
-  for (let i = 0; i < 260; i++) {
-    await greenSlider.sendKeys(Key.ARROW_RIGHT);
-  }
+  // // Send more than 255 keys to green slider
+  // for (let i = 0; i < 260; i++) {
+  //   await greenSlider.sendKeys(Key.ARROW_RIGHT);
+  // }
+
+
+  await greenSlider.sendKeys(Key.END);
+  await greenSlider.sendKeys(Key.ARROW_RIGHT);
 
   t.is(
     await greenSlider.getAttribute('aria-valuenow'),
@@ -168,10 +175,13 @@ ariaTest('Right arrow increases slider value by 1', exampleFile, 'key-right-arro
     'Display should match rgb(255, 255, 1)'
   );
 
-  // Send more than 255 keys to blue slider
-  for (let i = 0; i < 260; i++) {
-    await blueSlider.sendKeys(Key.ARROW_RIGHT);
-  }
+  // // Send more than 255 keys to blue slider
+  // for (let i = 0; i < 260; i++) {
+  //   await blueSlider.sendKeys(Key.ARROW_RIGHT);
+  // }
+
+  await blueSlider.sendKeys(Key.END);
+  await blueSlider.sendKeys(Key.ARROW_RIGHT);
 
   t.is(
     await blueSlider.getAttribute('aria-valuenow'),
@@ -203,10 +213,14 @@ ariaTest('up arrow increases slider value by 1', exampleFile, 'key-up-arrow', as
     'Display should match rgb(1, 0, 0)'
   );
 
-  // Send more than 255 keys to red slider
-  for (let i = 0; i < 260; i++) {
-    await redSlider.sendKeys(Key.ARROW_UP);
-  }
+  // // Send more than 255 keys to red slider
+  // for (let i = 0; i < 260; i++) {
+  //   await redSlider.sendKeys(Key.ARROW_UP);
+  // }
+
+
+  await redSlider.sendKeys(Key.END);
+  await redSlider.sendKeys(Key.ARROW_UP);
 
   t.is(
     await redSlider.getAttribute('aria-valuenow'),
@@ -232,10 +246,13 @@ ariaTest('up arrow increases slider value by 1', exampleFile, 'key-up-arrow', as
     'Display should match rgb(255, 1, 0)'
   );
 
-  // Send more than 255 keys to green slider
-  for (let i = 0; i < 260; i++) {
-    await greenSlider.sendKeys(Key.ARROW_UP);
-  }
+  // // Send more than 255 keys to green slider
+  // for (let i = 0; i < 260; i++) {
+  //   await greenSlider.sendKeys(Key.ARROW_UP);
+  // }
+
+  await greenSlider.sendKeys(Key.END);
+  await greenSlider.sendKeys(Key.ARROW_UP);
 
   t.is(
     await greenSlider.getAttribute('aria-valuenow'),
@@ -261,10 +278,13 @@ ariaTest('up arrow increases slider value by 1', exampleFile, 'key-up-arrow', as
     'Display should match rgb(255, 255, 1)'
   );
 
-  // Send more than 255 keys to blue slider
-  for (let i = 0; i < 260; i++) {
-    await blueSlider.sendKeys(Key.ARROW_UP);
-  }
+  // // Send more than 255 keys to blue slider
+  // for (let i = 0; i < 260; i++) {
+  //   await blueSlider.sendKeys(Key.ARROW_UP);
+  // }
+
+  await blueSlider.sendKeys(Key.END);
+  await blueSlider.sendKeys(Key.ARROW_UP);
 
   t.is(
     await blueSlider.getAttribute('aria-valuenow'),
@@ -297,10 +317,13 @@ ariaTest('page up increases slider value by 10', exampleFile, 'key-page-up', asy
     'Display should match rgb(10, 0, 0)'
   );
 
-  // Send more than 26 keys to red slider
-  for (let i = 0; i < 26; i++) {
-    await redSlider.sendKeys(Key.PAGE_UP);
-  }
+  // // Send more than 26 keys to red slider
+  // for (let i = 0; i < 26; i++) {
+  //   await redSlider.sendKeys(Key.PAGE_UP);
+  // }
+
+  await redSlider.sendKeys(Key.END);
+  await redSlider.sendKeys(Key.PAGE_UP);
 
   t.is(
     await redSlider.getAttribute('aria-valuenow'),
@@ -326,10 +349,13 @@ ariaTest('page up increases slider value by 10', exampleFile, 'key-page-up', asy
     'Display should match rgb(255, 10, 0)'
   );
 
-  // Send more than 26 keys to green slider
-  for (let i = 0; i < 26; i++) {
-    await greenSlider.sendKeys(Key.PAGE_UP);
-  }
+  // // Send more than 26 keys to green slider
+  // for (let i = 0; i < 26; i++) {
+  //   await greenSlider.sendKeys(Key.PAGE_UP);
+  // }
+
+  await greenSlider.sendKeys(Key.END);
+  await greenSlider.sendKeys(Key.PAGE_UP);
 
   t.is(
     await greenSlider.getAttribute('aria-valuenow'),
@@ -355,10 +381,13 @@ ariaTest('page up increases slider value by 10', exampleFile, 'key-page-up', asy
     'Display should match rgb(255, 255, 10)'
   );
 
-  // Send more than 26 keys to blue slider
-  for (let i = 0; i < 26; i++) {
-    await blueSlider.sendKeys(Key.PAGE_UP);
-  }
+  // // Send more than 26 keys to blue slider
+  // for (let i = 0; i < 26; i++) {
+  //   await blueSlider.sendKeys(Key.PAGE_UP);
+  // }
+
+  await blueSlider.sendKeys(Key.END);
+  await blueSlider.sendKeys(Key.PAGE_UP);
 
   t.is(
     await blueSlider.getAttribute('aria-valuenow'),
@@ -440,10 +469,13 @@ ariaTest('left arrow decreases slider value by 1', exampleFile, 'key-left-arrow'
     'Display should match rgb(254, 255, 255)'
   );
 
-  // Send more than 255 keys to red slider
-  for (let i = 0; i < 260; i++) {
-    await redSlider.sendKeys(Key.ARROW_LEFT);
-  }
+  // // Send more than 255 keys to red slider
+  // for (let i = 0; i < 260; i++) {
+  //   await redSlider.sendKeys(Key.ARROW_LEFT);
+  // }
+
+  await redSlider.sendKeys(Key.HOME);
+  await redSlider.sendKeys(Key.ARROW_LEFT);
 
   t.is(
     await redSlider.getAttribute('aria-valuenow'),
@@ -469,10 +501,13 @@ ariaTest('left arrow decreases slider value by 1', exampleFile, 'key-left-arrow'
     'Display should match rgb(0, 254, 255)'
   );
 
-  // Send more than 255 keys to green slider
-  for (let i = 0; i < 260; i++) {
-    await greenSlider.sendKeys(Key.ARROW_LEFT);
-  }
+  // // Send more than 255 keys to green slider
+  // for (let i = 0; i < 260; i++) {
+  //   await greenSlider.sendKeys(Key.ARROW_LEFT);
+  // }
+
+  await greenSlider.sendKeys(Key.HOME);
+  await greenSlider.sendKeys(Key.ARROW_LEFT);
 
   t.is(
     await greenSlider.getAttribute('aria-valuenow'),
@@ -498,10 +533,13 @@ ariaTest('left arrow decreases slider value by 1', exampleFile, 'key-left-arrow'
     'Display should match rgb(0, 0, 254)'
   );
 
-  // Send more than 255 keys to blue slider
-  for (let i = 0; i < 260; i++) {
-    await blueSlider.sendKeys(Key.ARROW_LEFT);
-  }
+  // // Send more than 255 keys to blue slider
+  // for (let i = 0; i < 260; i++) {
+  //   await blueSlider.sendKeys(Key.ARROW_LEFT);
+  // }
+
+  await blueSlider.sendKeys(Key.HOME);
+  await blueSlider.sendKeys(Key.ARROW_LEFT);
 
   t.is(
     await blueSlider.getAttribute('aria-valuenow'),
@@ -535,10 +573,13 @@ ariaTest('down arrow decreases slider value by 1', exampleFile, 'key-down-arrow'
     'Display should match rgb(254, 255, 255)'
   );
 
-  // Send more than 255 keys to red slider
-  for (let i = 0; i < 260; i++) {
-    await redSlider.sendKeys(Key.ARROW_DOWN);
-  }
+  // // Send more than 255 keys to red slider
+  // for (let i = 0; i < 260; i++) {
+  //   await redSlider.sendKeys(Key.ARROW_DOWN);
+  // }
+
+  await redSlider.sendKeys(Key.HOME);
+  await redSlider.sendKeys(Key.ARROW_DOWN);
 
   t.is(
     await redSlider.getAttribute('aria-valuenow'),
@@ -564,10 +605,13 @@ ariaTest('down arrow decreases slider value by 1', exampleFile, 'key-down-arrow'
     'Display should match rgb(0, 254, 255)'
   );
 
-  // Send more than 255 keys to green slider
-  for (let i = 0; i < 260; i++) {
-    await greenSlider.sendKeys(Key.ARROW_DOWN);
-  }
+  // // Send more than 255 keys to green slider
+  // for (let i = 0; i < 260; i++) {
+  //   await greenSlider.sendKeys(Key.ARROW_DOWN);
+  // }
+
+  await greenSlider.sendKeys(Key.HOME);
+  await greenSlider.sendKeys(Key.ARROW_DOWN);
 
   t.is(
     await greenSlider.getAttribute('aria-valuenow'),
@@ -593,10 +637,13 @@ ariaTest('down arrow decreases slider value by 1', exampleFile, 'key-down-arrow'
     'Display should match rgb(0, 0, 254)'
   );
 
-  // Send more than 255 keys to blue slider
-  for (let i = 0; i < 260; i++) {
-    await blueSlider.sendKeys(Key.ARROW_DOWN);
-  }
+  // // Send more than 255 keys to blue slider
+  // for (let i = 0; i < 260; i++) {
+  //   await blueSlider.sendKeys(Key.ARROW_DOWN);
+  // }
+
+  await blueSlider.sendKeys(Key.HOME);
+  await blueSlider.sendKeys(Key.ARROW_DOWN);
 
   t.is(
     await blueSlider.getAttribute('aria-valuenow'),
@@ -630,10 +677,13 @@ ariaTest('page down decreases slider value by 10', exampleFile, 'key-page-down',
     'Display should match rgb(245, 255, 255)'
   );
 
-  // Send more than 25 keys to red slider
-  for (let i = 0; i < 26; i++) {
-    await redSlider.sendKeys(Key.PAGE_DOWN);
-  }
+  // // Send more than 25 keys to red slider
+  // for (let i = 0; i < 26; i++) {
+  //   await redSlider.sendKeys(Key.PAGE_DOWN);
+  // }
+
+  await redSlider.sendKeys(Key.HOME);
+  await redSlider.sendKeys(Key.PAGE_DOWN);
 
   t.is(
     await redSlider.getAttribute('aria-valuenow'),
@@ -659,10 +709,13 @@ ariaTest('page down decreases slider value by 10', exampleFile, 'key-page-down',
     'Display should match rgb(0, 245, 255)'
   );
 
-  // Send more than 25 keys to green slider
-  for (let i = 0; i < 26; i++) {
-    await greenSlider.sendKeys(Key.PAGE_DOWN);
-  }
+  // // Send more than 25 keys to green slider
+  // for (let i = 0; i < 26; i++) {
+  //   await greenSlider.sendKeys(Key.PAGE_DOWN);
+  // }
+
+  await greenSlider.sendKeys(Key.HOME);
+  await greenSlider.sendKeys(Key.PAGE_DOWN);
 
   t.is(
     await greenSlider.getAttribute('aria-valuenow'),
@@ -688,10 +741,13 @@ ariaTest('page down decreases slider value by 10', exampleFile, 'key-page-down',
     'Display should match rgb(0, 0, 245)'
   );
 
-  // Send more than 25 keys to blue slider
-  for (let i = 0; i < 26; i++) {
-    await blueSlider.sendKeys(Key.PAGE_DOWN);
-  }
+  // // Send more than 25 keys to blue slider
+  // for (let i = 0; i < 26; i++) {
+  //   await blueSlider.sendKeys(Key.PAGE_DOWN);
+  // }
+
+  await blueSlider.sendKeys(Key.HOME);
+  await blueSlider.sendKeys(Key.PAGE_DOWN);
 
   t.is(
     await blueSlider.getAttribute('aria-valuenow'),
