@@ -19,6 +19,11 @@ const ex = {
   textboxSelector: '#ex1 #last_action'
 };
 
+const reload = async (session) => {
+  return session.get(await session.getCurrentUrl());
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+};
+
 const openAllFolders = async function (t) {
   const closedFoldersSelector = ex.treeitemSelector + '[aria-expanded="false"]';
   let closedFolders = await t.context.session.findElements(By.css(closedFoldersSelector));
@@ -285,7 +290,7 @@ ariaTest('key down arrow moves focus', exampleFile, 'key-down-arrow', async (t) 
   }
 
   // Reload page
-  await t.context.session.get(await t.context.session.getCurrentUrl());
+  await reload(t.context.session);
 
   // Open all folders
   await openAllFolders(t);
@@ -334,7 +339,7 @@ ariaTest('key up arrow moves focus', exampleFile, 'key-up-arrow', async (t) => {
   }
 
   // Reload page
-  await t.context.session.get(await t.context.session.getCurrentUrl());
+  await reload(t.context.session);
 
   // Open all folders
   await openAllFolders(t);
@@ -496,7 +501,7 @@ ariaTest('key home moves focus', exampleFile, 'key-home', async (t) => {
 
 
   // Reload page
-  await t.context.session.get(await t.context.session.getCurrentUrl());
+  await reload(t.context.session);
 
   // Open all folders
   await openAllFolders(t);
@@ -536,7 +541,7 @@ ariaTest('key end moves focus', exampleFile, 'key-end', async (t) => {
 
 
   // Reload page
-  await t.context.session.get(await t.context.session.getCurrentUrl());
+  await reload(t.context.session);
 
   // Open all folders
   await openAllFolders(t);
@@ -592,7 +597,7 @@ ariaTest('characters move focus', exampleFile, 'key-character', async (t) => {
   }
 
   // Reload page
-  await t.context.session.get(await t.context.session.getCurrentUrl());
+  await reload(t.context.session);
 
   // Open all folders
   await openAllFolders(t);
