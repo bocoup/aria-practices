@@ -20,5 +20,5 @@ deploy:
 
 script:
   - npm run regression
-  - grep "before Rejected promise returned by test" ./logs/* -C 500
+  - grep "connection refused" ./logs/* -C 500
   - grep "Failed to decode response from marionette" ./logs/* -C 500
