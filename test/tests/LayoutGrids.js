@@ -7,7 +7,7 @@ const assertAriaLabelledby = require('../util/assertAriaLabelledby');
 
 const reload = async (session) => {
   await session.get(await session.getCurrentUrl());
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
 };
 
 const clickUntilDisabled = async (session, selector) => {

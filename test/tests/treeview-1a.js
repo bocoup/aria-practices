@@ -21,7 +21,7 @@ const ex = {
 
 const reload = async (session) => {
   await session.get(await session.getCurrentUrl());
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
 };
 
 const openAllFolders = async function (t) {

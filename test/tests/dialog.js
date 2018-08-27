@@ -124,7 +124,7 @@ const openDialog4 = async function (t) {
 
 const reload = async (t) => {
   await t.context.session.get(await t.context.session.getCurrentUrl());
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
 };
 
 const checkFocus = async function (t, selector) {
