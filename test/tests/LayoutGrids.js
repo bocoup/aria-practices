@@ -6,7 +6,7 @@ const { By, Key } = require('selenium-webdriver');
 const assertAriaLabelledby = require('../util/assertAriaLabelledby');
 
 const reload = async (session) => {
-  return session.get(await session.getCurrentUrl());
+  await session.get(await session.getCurrentUrl());
   await new Promise((resolve) => setTimeout(resolve, 1000));
 };
 

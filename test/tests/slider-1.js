@@ -17,7 +17,7 @@ const ex = {
 
 const testDisplayMatchesValue = async function (t, rgbString) {
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
   const rgbValue = await t.context.session
     .findElement(By.css(ex.rgbTextInput))
