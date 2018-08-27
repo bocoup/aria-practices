@@ -10,10 +10,9 @@ const startGeckodriver = require('./util/start-geckodriver');
 let session, geckodriver;
 const firefoxArgs = process.env.CI ? [ '-headless' ] : [];
 
-test.before(async (t) => {
-  geckodriver = await startGeckodriver(1022, 12 * 1000);
-  session = new webdriver.Builder()
-    .usingServer('http://localhost:' + geckodriver.port)
+const startSession = async (port) => {
+  return new webdriver.Builder()
+    .usingServer('http://localhost:' + port)
     .withCapabilities({
       'moz:firefoxOptions': {
         args: firefoxArgs
@@ -21,7 +20,23 @@ test.before(async (t) => {
     })
     .forBrowser('firefox')
     .build();
-  await session;
+}
+
+test.before(async (t) => {
+  geckodriver = await startGeckodriver(1022, 12 * 1000);
+
+  try {
+    session = await startSession(geckodriver.port);
+  }
+  catch (err) {
+    // Firefox port already in use, try again
+    if (err.message === 'connection refused') {
+      session = await startSession(geckodriver.port);
+    }
+    else {
+      throw err;
+    }
+  }
 });
 
 test.beforeEach((t) => {
