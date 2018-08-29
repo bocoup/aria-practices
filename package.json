@@ -9,7 +9,7 @@
   "scripts": {
     "fix": "eslint --fix .",
     "lint": "eslint .",
-    "regression": "ava test/tests/button.js test/tests/checkbox-1.js && ava test/tests/combobox* && ava test/tests/d*.js test/tests/g*.js && ava test/tests/l*.js && ava test/tests/m*.js test/tests/r*.js && ava test/tests/s*.js test/tests/t*.js",
+    "regression": "ava test/tests",
     "test": "npm run lint && npm run vnu-jar && npm run regression",
     "vnu-jar": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --filterfile .vnurc --no-langdetect --skip-non-html *.html examples/"
   },
