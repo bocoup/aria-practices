@@ -33,7 +33,7 @@ test.after.always(async () => {
   if (session) {
     await session.close();
     if (geckodriver) {
-      geckodriver.stop();
+      await geckodriver.stop();
     }
   }
 });
