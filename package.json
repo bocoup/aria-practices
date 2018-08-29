@@ -31,6 +31,6 @@
     "vnu-jar": "^18.7.23"
   },
   "ava": {
-    "concurrency": 4
+    "concurrency": 32
   }
 }
