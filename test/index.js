@@ -22,7 +22,6 @@ test.before(async (t) => {
     .forBrowser('firefox')
     .build();
 
-  session.catch(err => t.true(false, err));
   await session;
 });
 
