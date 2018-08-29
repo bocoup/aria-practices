@@ -21,6 +21,8 @@ test.before(async (t) => {
     })
     .forBrowser('firefox')
     .build();
+
+  session.catch(err => t.true(false, err));
   await session;
 });
 
@@ -28,9 +30,13 @@ test.beforeEach((t) => {
   t.context.session = session;
 });
 
-test.after.always(() => {
-  return Promise.resolve(session && session.close())
-    .then(() => geckodriver && geckodriver.stop());
+test.after.always(async () => {
+  if (session) {
+    await session.close();
+    if (geckodriver) {
+      geckodriver.stop();
+    }
+  }
 });
 
 /**
