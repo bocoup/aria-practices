@@ -1,9 +1,10 @@
 language: node_js
 
-os: osx
+#os: osx
 
 node_js:
   - "node"
+  - "10"
 
 addons:
   firefox: "60.0.2"
@@ -19,3 +20,7 @@ deploy:
   script: /tmp/deploy/travis-deploy.sh
   on:
     branch: master
+
+cache:
+  directories:
+    - "node_modules"
