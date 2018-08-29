@@ -9,7 +9,7 @@ const forceSerial = require('./force-serial');
 const SERIES_LOCK = 8432;
 
 class Now {
-  constructor (hrt) {
+  constructor (hrt = {}) {
     Object.defineProperty(this, 'time', {
       enumerable: true,
       configurable: false,
