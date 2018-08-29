@@ -24,7 +24,7 @@ class Now {
   }
 
   get seconds () {
-    return this.toNano() / 1e9;
+    return this.nano / 1e9;
   }
 }
 
