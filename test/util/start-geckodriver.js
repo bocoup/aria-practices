@@ -8,9 +8,25 @@ const getJSON = require('./get-json');
 const forceSerial = require('./force-serial');
 const SERIES_LOCK = 8432;
 
-const Now = (time) => {
-  return process.hrtime(time);
-};
+class Now {
+  constructor (time) {
+    Object.defineProperty(this, 'time', {
+      enumerable: true,
+      configurable: false,
+      writable: false,
+      value: process.hrtime(time)
+    });
+  }
+
+  get nano () {
+    const { time: [sec, nano] } = this;
+    return sec * 1e9 + nano;
+  }
+
+  get seconds () {
+    return this.toNano() / 1e9;
+  }
+}
 
 const startOnPort = (port, timeout) => {
   if (timeout < 0) {
@@ -19,7 +35,7 @@ const startOnPort = (port, timeout) => {
     ));
   }
 
-  const start = Now();
+  const start = new Now();
   const child = spawn(binaryPath, ['--port', port]);
 
   return new Promise((resolve, reject) => {
@@ -36,7 +52,7 @@ const startOnPort = (port, timeout) => {
         return;
       }
 
-      if (timeout - Now(start)[0] < 0) {
+      if (timeout - (new Now(start).seconds) < 0) {
         reject(new Error('Timed out while waiting for WebDriver server'));
         return;
       }
@@ -54,12 +70,12 @@ const startOnPort = (port, timeout) => {
 };
 
 const startOnAnyPort = (port, timeout) => {
-  const start = Now();
+  const start = new Now();
 
   return startOnPort(port, timeout)
     .then(function (stop) {
       if (!stop) {
-        return startOnAnyPort(port + 1, timeout - Now(start)[0]);
+        return startOnAnyPort(port + 1, timeout - (new Now(start).seconds));
       }
       return { stop, port };
     });
