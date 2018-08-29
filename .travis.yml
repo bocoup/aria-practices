@@ -9,6 +9,8 @@ addons:
 git:
   depth: 3
 
+script: npm run lint && npm run vnu-jar && ava -c 1 test/tests
+
 before_deploy: scripts/travis-before_deploy.sh
 
 deploy:
