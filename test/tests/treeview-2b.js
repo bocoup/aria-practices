@@ -420,7 +420,7 @@ ariaTest('Key enter opens folder and activates link', exampleFile, 'key-enter-or
 });
 
 // This test fails due to bug #869.
-ariaTest.skip('Key space opens folder and activates link', exampleFile, 'key-enter-or-space', async (t) => {
+ariaTest.failing('Key space opens folder and activates link', exampleFile, 'key-enter-or-space', async (t) => {
   t.plan(2);
 
   let folders = await t.context.session.findElements(By.css(ex.folderSelector));
@@ -601,7 +601,7 @@ ariaTest('key right arrow opens folders and moves focus', exampleFile, 'key-righ
 });
 
 // This test fails due to bug #866.
-ariaTest.skip('key left arrow closes folders and moves focus', exampleFile, 'key-left-arrow', async (t) => {
+ariaTest.failing('key left arrow closes folders and moves focus', exampleFile, 'key-left-arrow', async (t) => {
   t.plan(106);
 
   // Open all folders

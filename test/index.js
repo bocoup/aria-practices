@@ -50,23 +50,23 @@ const ariaTest = (desc, page, testId, body) => {
 };
 
 /**
- * Skip a declared test using ava's 'test.skip' functionality. Skipped tests
- * will be reported.
+ * Mark a declared test as failing using ava's 'test.failing' functionality.
+ * If the test passes when it is expected to fail, a failure will be reported.
  *
  * See arguments for ariaTest.
  */
-ariaTest.skip = (desc, page, testId, body) => {
-  _ariaTest(desc, page, testId, body, 'SKIP');
+ariaTest.failing = (desc, page, testId, body) => {
+  _ariaTest(desc, page, testId, body, 'FAILING');
 };
 
-const _ariaTest = (desc, page, testId, body, skip) => {
+const _ariaTest = (desc, page, testId, body, failing) => {
   const absPath = path.resolve(__dirname, '..', 'examples', ...page.split('/'));
   const url = 'file://' + absPath;
   const selector = '[data-test-id="' + testId + '"]';
 
   const testName = page + ' ' + selector + ': ' + desc;
 
-  let runTest = skip ? test.skip : test.serial;
+  let runTest = failing ? test.failing : test.serial;
   runTest(testName, async function (t) {
     t.context.url = url;
     await t.context.session.get(url);

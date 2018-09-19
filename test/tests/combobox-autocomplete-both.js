@@ -234,7 +234,7 @@ ariaTest('Test up key press with focus on textbox',
 
 
 // This test fails due to bug: https://github.com/w3c/aria-practices/issues/821
-ariaTest.skip('Test up key press with focus on listbox',
+ariaTest.failing('Test up key press with focus on listbox',
   exampleFile, 'listbox-key-up-arrow', async (t) => {
 
     t.plan(3);

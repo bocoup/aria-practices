@@ -73,7 +73,7 @@ ariaTest('role="toolbar" element', exampleFile, 'toolbar-role', async (t) => {
 });
 
 // Test fails from bug in example: fix in issue 847 on w3c/aria-practices
-ariaTest.skip('"aria-label" on toolbar element', exampleFile, 'toolbar-aria-label', async (t) => {
+ariaTest.failing('"aria-label" on toolbar element', exampleFile, 'toolbar-aria-label', async (t) => {
   t.plan(1);
   await assertAriaLabelExists(t, ex.toolbarSelector);
 });
@@ -97,7 +97,7 @@ ariaTest('roving tabindex on button elements', exampleFile, 'button-tabindex', a
 });
 
 // Test pending fix bug in example: fix in issue 847 on w3c/aria-practices
-ariaTest.skip('"aria-disabled" on button elements', exampleFile, 'button-aria-disabled', async (t) => {
+ariaTest.failing('"aria-disabled" on button elements', exampleFile, 'button-aria-disabled', async (t) => {
   t.pass();
 });
 
@@ -127,7 +127,7 @@ ariaTest('key TAB moves focus', exampleFile, 'key-tab', async (t) => {
 });
 
 // This tests fail from bug in example: fix in issue 847 on w3c/aria-practices
-ariaTest.skip('key LEFT ARROW moves focus', exampleFile, 'key-left-arrow', async (t) => {
+ariaTest.failing('key LEFT ARROW moves focus', exampleFile, 'key-left-arrow', async (t) => {
   t.plan(12);
 
   // Put focus on the first item in the list
@@ -180,7 +180,7 @@ ariaTest.skip('key LEFT ARROW moves focus', exampleFile, 'key-left-arrow', async
 });
 
 // This tests fail from bug in example: fix in issue 847 on w3c/aria-practices
-ariaTest.skip('key RIGHT ARROW moves focus', exampleFile, 'key-right-arrow', async (t) => {
+ariaTest.failing('key RIGHT ARROW moves focus', exampleFile, 'key-right-arrow', async (t) => {
   t.plan(12);
 
   // Put focus on the first item in the list
@@ -232,7 +232,7 @@ ariaTest.skip('key RIGHT ARROW moves focus', exampleFile, 'key-right-arrow', asy
 });
 
 // This tests fail from bug in example: fix in issue 847 on w3c/aria-practices
-ariaTest.skip('key HOME moves focus', exampleFile, 'key-home', async (t) => {
+ariaTest.failing('key HOME moves focus', exampleFile, 'key-home', async (t) => {
   t.plan(6);
 
   let numTools = ex.allToolSelectors.length;
@@ -256,7 +256,7 @@ ariaTest.skip('key HOME moves focus', exampleFile, 'key-home', async (t) => {
 });
 
 // This tests fail from bug in example: fix in issue 847 on w3c/aria-practices
-ariaTest.skip('key END moves focus', exampleFile, 'key-end', async (t) => {
+ariaTest.failing('key END moves focus', exampleFile, 'key-end', async (t) => {
   t.plan(6);
 
   let numTools = ex.allToolSelectors.length;

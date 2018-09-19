@@ -206,7 +206,7 @@ ariaTest('role "row" exists within grid element', exampleFile, 'row-role', async
 });
 
 // This test fails due to bug: https://github.com/w3c/aria-practices/issues/859
-ariaTest.skip('"aria-selected" attribute on row element', exampleFile, 'row-aria-selected', async (t) => {
+ariaTest.failing('"aria-selected" attribute on row element', exampleFile, 'row-aria-selected', async (t) => {
   t.plan(2);
 
   // Send key "a"
@@ -549,7 +549,7 @@ ariaTest('Test escape key press with focus on textbox',
   });
 
 // This test fails due to bug: https://github.com/w3c/aria-practices/issues/860
-ariaTest.skip('Test escape key press with focus on popup',
+ariaTest.failing('Test escape key press with focus on popup',
   exampleFile, 'popup-key-escape', async (t) => {
     t.plan(2);
 

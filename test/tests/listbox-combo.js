@@ -177,7 +177,7 @@ ariaTest('Test aria-expanded on listbox correlates with listbox',
   });
 
 // This test fails due to bug: https://github.com/w3c/aria-practices/issues/785
-ariaTest.skip('Test id attribute on textbox referred to by label element',
+ariaTest.failing('Test id attribute on textbox referred to by label element',
   exampleFile, 'textbox-id', async (t) => {
 
     t.plan(9);
