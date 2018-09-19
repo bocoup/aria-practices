@@ -39,12 +39,27 @@ test.after.always(() => {
  * Declare a test for a behavior documented on and demonstrated by an
  * aria-practices examples page.
  *
+ * @param {String} desc - short description of the test
  * @param {String} page - path to the example file
  * @param {String} testId - unique identifier for the documented behavior
  *                          within the demonstration page
  * @param {Function} body - script which implements the test
  */
-const ariaTest = (desc, page, testId, body, skip) => {
+const ariaTest = (desc, page, testId, body) => {
+  _ariaTest(desc, page, testId, body);
+};
+
+/**
+ * Skip a declared test using ava's 'test.skip' functionality. Skipped tests
+ * will be reported.
+ *
+ * See arguments for ariaTest.
+ */
+ariaTest.skip = (desc, page, testId, body) => {
+  _ariaTest(desc, page, testId, body, 'SKIP');
+};
+
+const _ariaTest = (desc, page, testId, body, skip) => {
   const absPath = path.resolve(__dirname, '..', 'examples', ...page.split('/'));
   const url = 'file://' + absPath;
   const selector = '[data-test-id="' + testId + '"]';

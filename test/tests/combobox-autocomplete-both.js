@@ -233,7 +233,8 @@ ariaTest('Test up key press with focus on textbox',
   });
 
 
-ariaTest('Test up key press with focus on listbox',
+// This test fails due to bug: https://github.com/w3c/aria-practices/issues/821
+ariaTest.skip('Test up key press with focus on listbox',
   exampleFile, 'listbox-key-up-arrow', async (t) => {
 
     t.plan(3);
@@ -259,8 +260,7 @@ ariaTest('Test up key press with focus on listbox',
 
       await assertAriaSelectedAndActivedescendant(t, ex.textboxSelector, ex.optionsSelector, index);
     }
-  },
-  'SKIP'); // This test fails due to bug: https://github.com/w3c/aria-practices/issues/821
+  });
 
 
 ariaTest('Test enter key press with focus on textbox',
