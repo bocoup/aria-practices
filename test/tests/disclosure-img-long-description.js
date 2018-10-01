@@ -25,13 +25,13 @@ ariaTest('"aria-expanded" attribute on button', exampleFile, 'aria-expanded', as
 
   await assertAttributeValues(t, ex.buttonSelector, 'aria-expanded', 'false');
 
-  let description = await t.context.session.findElement(By.css(ex.buttonSelector));
+  const description = await t.context.session.findElement(By.css(ex.buttonSelector));
   t.true(
     await description.isDisplayed(),
     'Description should not be displayed if button has aria-expanded="false"'
   );
 
-  let button = await t.context.session.findElement(By.css(ex.buttonSelector));
+  const button = await t.context.session.findElement(By.css(ex.buttonSelector));
   await button.click();
 
   await assertAttributeValues(t, ex.buttonSelector, 'aria-expanded', 'true');
@@ -107,8 +107,8 @@ ariaTest('key ENTER expands details', exampleFile, 'key-space-or-enter', async (
 ariaTest('key SPACE expands details', exampleFile, 'key-space-or-enter', async (t) => {
   t.plan(4);
 
-  let button = await t.context.session.findElement(By.css(ex.buttonSelector));
-  let description = await t.context.session.findElement(By.css(ex.descriptionSelector));
+  const button = await t.context.session.findElement(By.css(ex.buttonSelector));
+  const description = await t.context.session.findElement(By.css(ex.descriptionSelector));
   await button.sendKeys(Key.SPACE);
 
   t.is(
