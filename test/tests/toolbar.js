@@ -25,6 +25,8 @@ const ex = {
   tabbaleItemAfterToolbarSelector: '[href="../../#kbd_roving_tabindex"]'
 };
 
+// A lovely comment.
+
 const clickAndWait = async function (t, selector) {
   let element = await t.context.session.findElement(By.css(selector));
   await element.click();
