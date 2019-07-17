@@ -6,7 +6,7 @@ then
   exit
 fi
 
-TEST_FILES=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/tests/\K[\w-]+(?=.js)')
+TEST_DIRS=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/tests/\K[\w-]+(?=_)' | uniq)
 EXAMPLE_DIRS=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'examples/\K[\w-]+(?=/)' | uniq)
 
 # Only add match args if the example/js or example/css directories or test/index.hs
@@ -21,12 +21,12 @@ if [ -z $TEST_INFRA ] && [ -z $EXAMPLE_INFRA ]
 then
   for D in $EXAMPLE_DIRS
   do
-    ARGS="${ARGS} --match '*${D}/*'"
+    ARGS="${ARGS} --match '${D}/*'"
   done
 
-  for F in $TEST_FILES
+  for F in $TEST_DIRS
   do
-    ARGS="${ARGS} --match ' *${F}* '"
+    ARGS="${ARGS} --match '${F}/*'"
   done
 fi
 
