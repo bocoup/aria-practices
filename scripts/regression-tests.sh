@@ -6,16 +6,18 @@ then
   exit
 fi
 
-TEST_INFRA=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/(util|index)')
 TEST_FILES=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/tests/\K\w+(?=.js)')
 EXAMPLE_DIRS=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'examples/\K\w+(?=/)' | uniq)
-
-ARGS=''
 
 # Only add match args if the example/js or example/css directories or test/index.hs
 # or the test/utils.js directories have not been edited
 
-if [ ! $TEST_INFRA ] && [ ! echo "$EXAMPLE_DIRS" | grep --silent -P "^(js|css)$" ]
+TEST_INFRA=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/(util|index)')
+EXAMPLE_INFRA=$(echo "$EXAMPLE_DIRS" | grep -P '^(js|css)$')
+
+ARGS=''
+
+if [ -z $TEST_INFRA ] && [ -z $EXAMPLE_INFRA ]
 then
   for D in $EXAMPLE_DIRS
   do
