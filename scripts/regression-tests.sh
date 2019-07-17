@@ -6,8 +6,8 @@ then
   exit
 fi
 
-TEST_FILES=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/tests/\K.*(?=.js)')
-EXAMPLE_DIRS=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'examples/\K.*(?=/)' | uniq)
+TEST_FILES=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/tests/\K[\w-]+(?=.js)')
+EXAMPLE_DIRS=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'examples/\K[\w-]+(?=/)' | uniq)
 
 # Only add match args if the example/js or example/css directories or test/index.hs
 # or the test/utils.js directories have not been edited
