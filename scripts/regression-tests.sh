@@ -21,12 +21,12 @@ if [ -z $TEST_INFRA ] && [ -z $EXAMPLE_INFRA ]
 then
   for D in $EXAMPLE_DIRS
   do
-    ARGS="${ARGS} --match *${D}*"
+    ARGS="${ARGS} --match *${D}/*"
   done
 
   for F in $TEST_FILES
   do
-    ARGS="${ARGS} --match *${F}*"
+    ARGS="${ARGS} --match * ${F} *"
   done
 fi
 
