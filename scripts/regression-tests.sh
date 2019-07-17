@@ -28,4 +28,7 @@ then
   done
 fi
 
-ava -t -c 1 test/tests "ARGS"
+AVACMD="ava -t -c 1 test/tests ${ARGS}"
+echo "$ $AVACMD"
+
+$AVACMD
