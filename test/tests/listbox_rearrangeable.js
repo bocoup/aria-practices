@@ -11,6 +11,8 @@ const assertAttributeDNE = require('../util/assertAttributeDNE');
 
 const exampleFile = 'listbox/listbox-rearrangeable.html';
 
+// ADDING A COMMENT
+
 const ex = {
   1: {
     listboxSelector: '#ex1 [role="listbox"]',
