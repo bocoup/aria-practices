@@ -30,6 +30,18 @@ then
   done
 fi
 
+echo "$ ava --version"
+ava --version
+
+echo "$ ls test/tests"
+pwd
+ls test/tests
+
+echo "travis commit range"
+echo $TRAVIS_COMMIT_RANGE
+echo "$ git diff --name-only $TRAVIS_COMMIT_RANGE"
+git diff --name-only $TRAVIS_COMMIT_RANGE
+
 AVACMD="npm run regression -- -t -c 1 test/tests ${ARGS}"
 echo "$ $AVACMD"
 
