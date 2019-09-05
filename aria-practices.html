@@ -6444,12 +6444,200 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
     </p>
   </section>
 
+  <section id="automation">
+    <h2>Automation</h2>
+    <p>
+      In order to assist authors in authoring automated tests for applications
+      that implement these patterns, this document defines the following
+      extension commands for the WebDriver specification:
+    </p>
+
+	<section id="automation-algorithms">
+	  <h3>Algorithms</h3>
+
+	  <p>In order to <dfn>use</dfn> an <var>element</var>, a <a>remote end</a> must take the following steps:
+
+	  <ol>
+		<li><p>If <var>element</var> is not <a>keyboard-interactable</a>, return <a>error</a> with <a>error code</a> <a>element not interactable</a>.</p></li>
+		<li><p>If <var>element</var> is not the <a>active element</a>, run the <a>focusing steps</a> for <var>element</var>.</p></li>
+		<li><p>Let <var>keyboard</var> be a new <a>key input source</a>.</p></li>
+		<li><p><a>Dispatch actions for a string</a> with arguments "<code>\uE007</code>" and <var>keyboard</var>.</p></li>
+		<li><p>Remove <var>keyboard</var> from the <a>current session</a>'s <a>input state table</a>.</p></li>
+		<li><p>Remove <var>keyboard</var> from the list of <a>active input sources</a>.</p></li>
+	  </ol>
+	</section>
+
+	<section id="automation-commands">
+	  <h3>Extension commands</h3>
+
+      <section id="automation-pushbutton">
+        <h4>Push Button</h4>
+
+        <table class=simple>
+         <tr>
+          <th>HTTP Method</th>
+          <th>URI Template</th>
+         </tr>
+
+         <tr>
+          <td>POST</td>
+          <td>/session/{<var>session id</var>}/aria/button/element/{<var>element id</var>}/push</td>
+         </tr>
+        </table>
+
+        <p>The Push Button automation command simulates user interaction with a <a href="#button">button widget</a>.</p>
+
+        <p>The <a>remote end</a> steps are:</p>
+
+        <ol>
+          <li><p>If the <a>current browsing context</a> is <a>no longer open</a>,
+              return <a>error</a> with <a>error code</a> <a>no such window</a>.</p></li>
+
+          <li><p><a>Handle any user prompts</a>
+              and return its value if it is an <a>error</a>.</p></li>
+
+          <li><p>Let <var>element</var> be the result
+            of <a data-lt="try">trying</a> to <a>get a known connected element</a>
+            with <a>url variable</a> <var>element id</var>.</p></li>
+
+          <li><p>Let <var>qualified name</var> be the result of getting <var>element</var>'s <a>tagName</a> content <a>attribute</a>.</p></li>
+
+          <li>
+            <p>If <var>qualified name</var> is not "<code>button</code>":</p>
+
+            <ol style="list-style: decimal;">
+              <li><p>Let <var>role</var> be the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>role</code>" and <var>element</var>.</p></li>
+
+              <li><p>If <var>role</var> is not "<code>button</code>", return <a>error</a> with <a>error code</a> <a>invalid markup</a>.</li>
+            </ol>
+          </li>
+
+          <li><p>Let <var>name</var> be the result of computing the <a>accessible name</a> of <var>element</var>.</p></li>
+
+          <li><p>If <var>name</var> is the empty string, return <a>error</a> with <a>error code</a> <a>invalid markup</a>.</li>
+
+          <li><p>Let <var>pressed</var> be the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>aria-pressed</code>" and <var>element</var>.</p></li>
+
+          <li><p><a>Try</a> to <a>use</a> <var>element</var>.</p></li>
+
+          <li><p>If <var>pressed</var> is "<code>true</code>", then let <var>toggled</var> be "<code>false</code>".</p></li>
+
+          <li><p>Otherwise, if <var>pressed</var> is "<code>false</code>", then let <var>toggled</var> be "<code>true</code>".</p></li>
+
+          <li><p>Otherwise, return <a>success</a> with data <a><code>null</code></a>.</p></li>
+
+          <li><p>Wait in an implementation-specific way up to the <a>session implicit wait timeout</a> for the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>aria-pressed</code>" and <var>element</var> to become <var>toggled</var>.</p></li>
+
+          <li><p>If the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>aria-pressed</code>" and <var>element</var> is not <var>toggled</var>, return <a>error</a> with <a>error code</a> <a>timeout</a>.</p></li>
+
+          <li><p>Let <var>toggled name</var> be the result of computing the <a>accessible name</a> of <var>element</var>.</p></li>
+
+          <li><p>If <var>toggled name</var> does not equal <var>name</var>, return <a>error</a> with <a>error code</a> <a>invalid element state</a>.</p></li>
+
+          <li><p>Return <a>success</a> with data <a><code>null</code></a>.</p></li>
+        </ol>
+      </section>
+    </section>
+
+    <section id="automation-errors">
+      <h3>Handling errors</h3>
+
+      <table class=simple>
+        <tr>
+          <th>Error Code</th>
+          <th>HTTP Status</th>
+          <th>JSON Error Code</th>
+          <th>Description</th>
+        </tr>
+
+        <tr>
+          <td><dfn>invalid markup</dfn></td>
+          <td>500</td>
+          <td><code>invalid markup</dfn></td>
+          <td>The markup used to define the specified element or its contents does not adhere to the recommendations of this guide.</td>
+        </tr>
+      </table>
+    </section>
+  </section>
+
     <section id="indexes" class="appendix">
       <h2>Indexes</h2>
-      <ul>
-        <li><a href="examples/#examples_by_role_label">Design Pattern Examples by Role</a></li>
-        <li><a href="examples/#examples_by_props_label">Design Pattern Examples by Properties and States</a> </li>
-      </ul>
+
+      <section>
+        <h3>Design pattern examples</h3>
+
+        <ul>
+          <li><a href="examples/#examples_by_role_label">Design Pattern Examples by Role</a></li>
+          <li><a href="examples/#examples_by_props_label">Design Pattern Examples by Properties and States</a> </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Terms defined by reference</h3>
+
+        <dl>
+          <dt>Accessible Name</dt>
+          <dd>
+            <p>The following terms are defined in the Accessible Name specification: [[ACCNAME-1.2]]</p>
+            <ul>
+              <li><dfn><a href="https://w3c.github.io/accname/#dfn-accessible-name">Accessible name</a></dfn></li>
+            </ul>
+          </dd>
+          <dt>DOM</dt>
+          <dt>
+          <dd>
+            <p>The following terms are defined in the Document Object Model specification: [[DOM]]</p>
+            <ul>
+              <li><dfn><a href="https://dom.spec.whatwg.org/#concept-attribute">attribute</a></dfn></li>
+              <li><dfn><a href="https://dom.spec.whatwg.org/#concept-element-attributes-get-by-name">Get an attribute by name</a></dfn></li>
+              <li><dfn><a href="https://dom.spec.whatwg.org/#dom-element-tagname">tagName</a></dfn></li>
+            </ul>
+          </dd>
+          <dt>ECMAScript</dt>
+          <dd>
+            <p>The following terms are defined in the ECMAScript Language Specification: [[ECMA-262]]</p>
+            <ul>
+              <li><dfn><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-4.3.11"><code>null</code></a></dfn></li>
+            </ul>
+          </dd>
+          <dt>HTML</dt>
+          <dd>
+            <p>The following terms are defined in the HTML specification: [[HTML]]</p>
+            <ul>
+              <li><dfn>Active element</dfn> being the <a href=https://html.spec.whatwg.org/#dom-document-activeelement><code>activeElement</code></a> attribute on <a href=https://html.spec.whatwg.org/#document><code>Document</code></a></li>
+              <li><dfn><a href="https://html.spec.whatwg.org/#focusing-steps">focusing steps</a></dfn></li>
+            </ul>
+          </dd>
+          <dt>WebDriver</dt>
+          <dd>
+            <p>The following terms are definedin the WebDriver specification: [[WebDriver]]</p>
+            <ul>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-active-input-sources">active input sources</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-current-browsing-context">current browsing context</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-current-session">current session</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-dispatch-actions-for-a-string">dispatch actions for a string</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-element-not-interactable">element not interactable</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-errors">error</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-error-code">error code</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-get-a-known-connected-element">get a known connected element</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-handle-any-user-prompts">handle any user prompts</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-input-state-table">input state table</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-invalid-element-state">invalid element state</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-key-input-source">key input source</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-keyboard-interactable">keyboard-interactable</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-no-longer-open">no longer open</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-no-such-window">no such window</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-remote-ends">remote end</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-session-script-timeout">session implicit wait timeout</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-success">success</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-timeout">timeout</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-try">try</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-url-variables">url variable</a></dfn></li>
+              <!-- li><dfn data-lt="blocked by content security policy"><a href=https://w3c.github.io/webappsec-csp/#should-block-navigation-response>Should block navigation response</a></dfn -->
+            </ul>
+          </dd>
+        </dl>
+      </section>
     </section>
 
     <section id="change_log" class="appendix">
