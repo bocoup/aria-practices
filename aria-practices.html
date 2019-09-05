@@ -6452,20 +6452,20 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
       extension commands for the WebDriver specification:
     </p>
 
-	<section id="automation-algorithms">
-	  <h3>Algorithms</h3>
+    <section id="automation-algorithms">
+      <h3>Algorithms</h3>
 
-	  <p>In order to <dfn>use</dfn> an <var>element</var>, a <a>remote end</a> must take the following steps:</p>
+      <p>In order to <dfn>use</dfn> an <var>element</var>, a <a>remote end</a> must take the following steps:</p>
 
-	  <ol>
-		<li><p>If <var>element</var> is not <a>keyboard-interactable</a>, return <a>error</a> with <a>error code</a> <a>element not interactable</a>.</p></li>
-		<li><p>If <var>element</var> is not the <a>active element</a>, run the <a>focusing steps</a> for <var>element</var>.</p></li>
-		<li><p>Let <var>keyboard</var> be a new <a>key input source</a>.</p></li>
-		<li><p><a>Dispatch actions for a string</a> with arguments "<code>\uE007</code>" and <var>keyboard</var>.</p></li>
-		<li><p>Remove <var>keyboard</var> from the <a>current session</a>'s <a>input state table</a>.</p></li>
-		<li><p>Remove <var>keyboard</var> from the list of <a>active input sources</a>.</p></li>
-	  </ol>
-	</section>
+      <ol>
+        <li><p>If <var>element</var> is not <a>keyboard-interactable</a>, return <a>error</a> with <a>error code</a> <a>element not interactable</a>.</p></li>
+        <li><p>If <var>element</var> is not the <a>active element</a>, run the <a>focusing steps</a> for <var>element</var>.</p></li>
+        <li><p>Let <var>keyboard</var> be a new <a>key input source</a>.</p></li>
+        <li><p><a>Dispatch actions for a string</a> with arguments "<code>\uE007</code>" and <var>keyboard</var>.</p></li>
+        <li><p>Remove <var>keyboard</var> from the <a>current session</a>'s <a>input state table</a>.</p></li>
+        <li><p>Remove <var>keyboard</var> from the list of <a>active input sources</a>.</p></li>
+      </ol>
+    </section>
 
     <p>In order to <dfn>infer the role</dfn> of an <var>element</var>, a <a>remote end</a> must take the following steps:</p>
 
@@ -6476,8 +6476,8 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
       <li><p>Otherwise, return <a><code>null</code></a>.</p></li>
     </ol>
 
-	<section id="automation-commands">
-	  <h3>Extension commands</h3>
+    <section id="automation-commands">
+      <h3>Extension commands</h3>
 
       <section id="automation-pushbutton">
         <h4>Push Button</h4>
