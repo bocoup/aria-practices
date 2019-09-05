@@ -6467,6 +6467,15 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
 	  </ol>
 	</section>
 
+    <p>In order to <dfn>infer the role</dfn> of an <var>element</var>, a <a>remote end</a> must take the following steps:</p>
+
+    <ol>
+      <li><p>Let <var>attr</var> be the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>role</code>" and <var>element</var>.</p></li>
+      <li><p>If <var>attr</var> is not <a><code>null</code></a>, return <var>attr</var>.</p></li>
+      <li><p>If <var>element</var> has a corresponding role in the <a>HTML Element Role Mappings</a>, return the name of the role as a string value.</p></li>
+      <li><p>Otherwise, return <a><code>null</code></a>.</p></li>
+    </ol>
+
 	<section id="automation-commands">
 	  <h3>Extension commands</h3>
 
@@ -6500,17 +6509,9 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
             of <a data-lt="try">trying</a> to <a>get a known connected element</a>
             with <a>url variable</a> <var>element id</var>.</p></li>
 
-          <li><p>Let <var>qualified name</var> be the result of getting <var>element</var>'s <a>tagName</a> content <a>attribute</a>.</p></li>
+          <li><p>Let <var>role</var> be the result of <a data-lt="infer the role">inferring the role</a> of <var>element</var>.</p></li>
 
-          <li>
-            <p>If <var>qualified name</var> is not "<code>button</code>":</p>
-
-            <ol style="list-style: decimal;">
-              <li><p>Let <var>role</var> be the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>role</code>" and <var>element</var>.</p></li>
-
-              <li><p>If <var>role</var> is not "<code>button</code>", return <a>error</a> with <a>error code</a> <a>invalid markup</a>.</li>
-            </ol>
-          </li>
+          <li><p>If <var>role</var> is not "<code>button</code>", return <a>error</a> with <a>error code</a> <a>invalid markup</a>.</p></li>
 
           <li><p>Let <var>name</var> be the result of computing the <a>accessible name</a> of <var>element</var>.</p></li>
 
@@ -6606,6 +6607,13 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
             <ul>
               <li><dfn>Active element</dfn> being the <a href=https://html.spec.whatwg.org/#dom-document-activeelement><code>activeElement</code></a> attribute on <a href=https://html.spec.whatwg.org/#document><code>Document</code></a></li>
               <li><dfn><a href="https://html.spec.whatwg.org/#focusing-steps">focusing steps</a></dfn></li>
+            </ul>
+          </dd>
+          <dt>HTML Accessible API Mappings</dt>
+          <dd>
+            <p>The following terms are defined in the HTML Accessible API Mappings specification: [[HTML-AAM]]</p>
+            <ul>
+              <li><dfn><a href="https://w3c.github.io/html-aam/#html-element-role-mappings">HTML Element Role Mappings</a></dfn></li>
             </ul>
           </dd>
           <dt>WebDriver</dt>
