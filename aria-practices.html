@@ -6449,8 +6449,10 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
     <p>
       In order to assist authors in authoring automated tests for applications
       that implement these patterns, this document defines the following
-      extension commands for the WebDriver specification:
+      extensions to the WebDriver specification.
     </p>
+
+    <p>A <a>session</a> has an associated <dfn>preferred input mode</dfn> which is one of the keywords from the <a>table of input modes</a>. Unless otherwise stated, it is "<code>keyboard</code>".</p>
 
     <section id="automation-algorithms">
       <h3>Algorithms</h3>
@@ -6458,12 +6460,26 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
       <p>In order to <dfn>use</dfn> an <var>element</var>, a <a>remote end</a> must take the following steps:</p>
 
       <ol>
-        <li><p>If <var>element</var> is not <a>keyboard-interactable</a>, return <a>error</a> with <a>error code</a> <a>element not interactable</a>.</p></li>
-        <li><p>If <var>element</var> is not the <a>active element</a>, run the <a>focusing steps</a> for <var>element</var>.</p></li>
-        <li><p>Let <var>keyboard</var> be a new <a>key input source</a>.</p></li>
-        <li><p><a>Dispatch actions for a string</a> with arguments "<code>\uE007</code>" and <var>keyboard</var>.</p></li>
-        <li><p>Remove <var>keyboard</var> from the <a>current session</a>'s <a>input state table</a>.</p></li>
-        <li><p>Remove <var>keyboard</var> from the list of <a>active input sources</a>.</p></li>
+        <li><p>If the <a>current session</a>'s <a>preferred input mode</a> is "<code>keyboard</code>", then</p>
+          <ol style="list-style: decimal;">
+            <li><p>If <var>element</var> is not <a>keyboard-interactable</a>, return <a>error</a> with <a>error code</a> <a>element not interactable</a>.</p></li>
+            <li><p>If <var>element</var> is not the <a>active element</a>, run the <a>focusing steps</a> for <var>element</var>.</p></li>
+            <li><p>Let <var>keyboard</var> be a new <a>key input source</a>.</p></li>
+            <li><p><a>Dispatch actions for a string</a> with arguments "<code>\uE007</code>" and <var>keyboard</var>.</p></li>
+            <li><p>Remove <var>keyboard</var> from the <a>current session</a>'s <a>input state table</a>.</p></li>
+            <li><p>Remove <var>keyboard</var> from the list of <a>active input sources</a>.</p></li>
+          </ol>
+        </li>
+        <li><p>Else if the <a>current session</a>'s <a>preferred input mode</a> is "<code>mouse</code>", then</p>
+          <ol style="list-style: decimal;">
+            <li><p>Simulate a mouse click on <var>element</var>, similar to <a>Element Click</a>. <span class="issue">these substeps are intentionally underspecified for illustrative purposes</span></p>
+          </ol>
+        </li>
+        <li><p>Else</p>
+          <ol style="list-style: decimal;">
+            <li><p>Simulate a pointer down" action on <var>element</var>, followed by a "pointer up" action on <var>element</var>. <span class="issue">these substeps are intentionally underspecified for illustrative purposes</span></p>
+          </ol>
+        </li>
       </ol>
     </section>
 
@@ -6472,9 +6488,57 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
     <ol>
       <li><p>Let <var>attr</var> be the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>role</code>" and <var>element</var>.</p></li>
       <li><p>If <var>attr</var> is not <a><code>null</code></a>, return <var>attr</var>.</p></li>
-      <li><p>If <var>element</var> has a corresponding role in the <a>HTML Element Role Mappings</a>, return the name of the role as a string value.</p></li>
+      <li><p>If <var>element</var> has a corresponding role in the <a>HTML Element Role Mappings</a>, return the name of the role as a <a>string</a> value.</p></li>
       <li><p>Otherwise, return <a><code>null</code></a>.</p></li>
     </ol>
+
+    <p>In some cases, widgets may react to input from different devices by exhibiting the same behavior. The following <dfn>table of input modes</dfn> lists the devices which may be considered equivalent in these contexts:</p>
+
+    <table class="simple">
+      <tr>
+        <th>Keyword</th>
+      </tr>
+
+      <tr>
+        <td>"<code>keyboard</code>"</td>
+      </tr>
+      <tr>
+        <td>"<code>mouse</code>"</td>
+      </tr>
+      <tr>
+        <td>"<code>touch</code>"</td>
+      </tr>
+    </table>
+
+    <p>When asked to <dfn>deserialize as a preferred input mode</dfn> with argument <var>value</var>:
+
+    <ol>
+      <li><p>If <var>value</var> is not a <a>string</a>, return an <a>error</a> with <a>error code</a> <a>invalid argument</a>.</p></li>
+      <li><p>If there is no entry in the <a>table of input modes</a> with <code>keyword</code> <var>value</var>, return an <a>error</a> with <a>error code</a> <a>invalid argument</a>.</p></li>
+      <li><p>Return <a>success</a> with data <var>value</var>.</p></li>
+    </ol>
+
+    <section id="automation-capabilities">
+      <h3>Extension capabilities</h3>
+
+      <p>This document defines the following <a>extension capability</a> for the WebDriver specification:</p>
+
+      <table class="simple">
+        <tr>
+          <th>Capability</th>
+          <th>Key</th>
+          <th>Value Type</th>
+          <th>Description</th>
+        </tr>
+
+        <tr>
+          <td><a>Preferred input mode</a></td>
+          <td>"<code>aria:preferredInput</code>"</td>
+          <td><a>string</a></td>
+          <td>The device to <a>use</a> when an interaction can be expressed with multiple devices.</td>
+        </tr>
+      </table>
+    </section>
 
     <section id="automation-commands">
       <h3>Extension commands</h3>
@@ -6599,6 +6663,7 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
             <p>The following terms are defined in the ECMAScript Language Specification: [[ECMA-262]]</p>
             <ul>
               <li><dfn><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-4.3.11"><code>null</code></a></dfn></li>
+              <li><dfn><a href="https://www.ecma-international.org/ecma-262/5.1/#sec-4.3.18">String</a></dfn></li>
             </ul>
           </dd>
           <dt>HTML</dt>
@@ -6625,17 +6690,21 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-current-session">current session</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-dispatch-actions-for-a-string">dispatch actions for a string</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-element-not-interactable">element not interactable</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#element-click">Element Click</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-extension-capability">extension capability</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-errors">error</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-error-code">error code</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-get-a-known-connected-element">get a known connected element</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-handle-any-user-prompts">handle any user prompts</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-input-state-table">input state table</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-invalid-argument">invalid argument</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-invalid-element-state">invalid element state</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-key-input-source">key input source</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-keyboard-interactable">keyboard-interactable</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-no-longer-open">no longer open</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-no-such-window">no such window</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-remote-ends">remote end</a></dfn></li>
+              <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-sessions">session</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-session-script-timeout">session implicit wait timeout</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-success">success</a></dfn></li>
               <li><dfn><a href="https://w3c.github.io/webdriver/#dfn-timeout">timeout</a></dfn></li>
