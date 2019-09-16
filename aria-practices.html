@@ -6454,6 +6454,8 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
 
     <p>A <a>session</a> has an associated <dfn>preferred input mode</dfn> which is one of the keywords from the <a>table of input modes</a>. Unless otherwise stated, it is "<code>keyboard</code>".</p>
 
+    <p class="note">In some cases, widgets may react to input from different devices by exhibiting the same behavior. Authors using the commands defined in this section may wish to reuse the same scripts to simulate interaction from users with differing capabilities. The <a>preferred input mode</a> facilitates such reuse.</p>
+
     <section id="automation-algorithms">
       <h3>Algorithms</h3>
 
@@ -6492,7 +6494,7 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
       <li><p>Otherwise, return <a><code>null</code></a>.</p></li>
     </ol>
 
-    <p>In some cases, widgets may react to input from different devices by exhibiting the same behavior. The following <dfn>table of input modes</dfn> lists the devices which may be considered equivalent in these contexts:</p>
+    <p>The following <dfn>table of input modes</dfn> lists devices which may be considered equivalent when <a data-lt="use">using</a> elements:</p>
 
     <table class="simple">
       <tr>
