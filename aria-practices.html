@@ -6577,11 +6577,11 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
 
           <li><p>Let <var>role</var> be the result of <a data-lt="infer the role">inferring the role</a> of <var>element</var>.</p></li>
 
-          <li><p>If <var>role</var> is not "<code>button</code>", return <a>error</a> with <a>error code</a> <a>invalid markup</a>.</p></li>
+          <li><p>If <var>role</var> is not "<code>button</code>", return <a>error</a> with <a>error code</a> <a>invalid structure</a>.</p></li>
 
           <li><p>Let <var>name</var> be the result of computing the <a>accessible name</a> of <var>element</var>.</p></li>
 
-          <li><p>If <var>name</var> is the empty string, return <a>error</a> with <a>error code</a> <a>invalid markup</a>.</li>
+          <li><p>If <var>name</var> is the empty string, return <a>error</a> with <a>error code</a> <a>invalid structure</a>.</li>
 
           <li>
             <p>Let <var>pressed</var> be the result of <a data-lt="Get an attribute by name">getting an attribute by name</a> with "<code>aria-pressed</code>" and <var>element</var>.</p>
@@ -6626,10 +6626,10 @@ So, As advised by <a href="#naming_rule_avoid_fallback">Rule 4: Avoid Browser Fa
         </tr>
 
         <tr>
-          <td><dfn>invalid markup</dfn></td>
+          <td><dfn>invalid structure</dfn></td>
           <td>500</td>
-          <td><code>invalid markup</dfn></td>
-          <td>The markup used to define the specified element or its contents does not adhere to the recommendations of this guide.</td>
+          <td><code>invalid structure</dfn></td>
+          <td>The structure used to define the specified element or its contents does not adhere to the recommendations of this guide.</td>
         </tr>
       </table>
     </section>
