@@ -9,6 +9,11 @@ const startGeckodriver = require('./util/start-geckodriver');
 
 let session, geckodriver;
 const firefoxArgs = process.env.CI ? [ '-headless' ] : [];
+
+console.log("HELLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLO");
+console.log(firefoxArgs);
+console.log(process.env);
+
 const testWaitTime = parseInt(process.env.TEST_WAIT_TIME) || 500;
 const coverageReportRun = process.env.REGRESSION_COVERAGE_REPORT;
 
