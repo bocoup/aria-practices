@@ -34,6 +34,12 @@ then
   done
 fi
 
+
+echo "variables"
+echo $TEST_WAIT_TIME
+echo $CI_NODE_TOTAL
+echo $CI_NODE_INDEX
+
 AVACMD="npm run regression -- -t test/tests/*.js ${ARGS}"
 echo "$ $AVACMD"
 
