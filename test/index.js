@@ -1,4 +1,5 @@
 'use strict';
+// This should cause all tests to run
 
 const path = require('path');
 const test = require('ava');
