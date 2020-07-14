@@ -34,7 +34,7 @@ then
   done
 fi
 
-AVACMD="npm run regression -- -t -c 1 test/tests/*.js ${ARGS}"
+AVACMD="npm run regression -- -t test/tests/*.js ${ARGS}"
 echo "$ $AVACMD"
 
 $AVACMD
