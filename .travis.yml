@@ -41,7 +41,7 @@ jobs:
       script: scripts/regression-tests.sh
       env:
         - TEST_WAIT_TIME=1000
-        - CI_NODE_TOTAL=2
+        - CI_NODE_TOTAL=3
         - CI_NODE_INDEX=0
 
     - stage: Test
@@ -51,8 +51,18 @@ jobs:
       script: scripts/regression-tests.sh
       env:
         - TEST_WAIT_TIME=1000
-        - CI_NODE_TOTAL=2
+        - CI_NODE_TOTAL=3
         - CI_NODE_INDEX=1
+
+    - stage: Test
+      name: AVA Regression Tests
+      addons:
+        firefox: latest
+      script: scripts/regression-tests.sh
+      env:
+        - TEST_WAIT_TIME=1000
+        - CI_NODE_TOTAL=3
+        - CI_NODE_INDEX=2
 
     - stage: Lint
       name: Regression Tests Coverage Report
