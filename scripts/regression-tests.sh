@@ -1,6 +1,13 @@
 #!/bin/bash
 
-if ! git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qP '(test/|examples/|package\.json)'
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]
+then
+  COMMIT_RANGE=$TRAVIS_COMMIT_RANGE
+else
+  COMMIT_RANGE="origin/master...$TRAVIS_BRANCH"
+fi
+
+if ! git diff --name-only $COMMIT_RANGE | grep -qP '(test/|examples/|package\.json)'
 then
   echo "Examples files were not updated, not running example regression tests."
   exit
@@ -9,7 +16,7 @@ fi
 AVACMD="npm run regression -- -t"
 ARGS=''
 
-TEST_INFRA=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/(util|index)')
+TEST_INFRA=$(git diff --name-only $COMMIT_RANGE | grep -oP 'test/(util|index)')
 EXAMPLE_INFRA=$(echo "$EXAMPLE_DIRS" | grep -P '^(js|css)$')
 
 
@@ -25,8 +32,8 @@ else
 
   # Otherwise, run only relevant tests
 
-  TEST_FILES=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'test/tests/\K.*' | uniq)
-  EXAMPLE_DIRS=$(git diff --name-only $TRAVIS_COMMIT_RANGE | grep -oP 'examples/\K[\w-]+(?=/)' | uniq)
+  TEST_FILES=$(git diff --name-only $COMMIT_RANGE | grep -oP 'test/tests/\K.*' | uniq)
+  EXAMPLE_DIRS=$(git diff --name-only $COMMIT_RANGE | grep -oP 'examples/\K[\w-]+(?=/)' | uniq)
 
   echo TEST_FILES $TEST_FILES
   echo EXAMPLE_DIRS $EXAMPLE_DIRS
