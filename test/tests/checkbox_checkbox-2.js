@@ -1,4 +1,5 @@
 'use strict';
+// This should cause only checkbox tests to run
 
 const { ariaTest } = require('..');
 const { By, Key } = require('selenium-webdriver');
