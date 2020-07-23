@@ -1,11 +1,6 @@
 #!/bin/bash
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ]
-then
-  COMMIT_RANGE=$TRAVIS_COMMIT_RANGE
-else
-  COMMIT_RANGE="origin/master...$TRAVIS_BRANCH"
-fi
+COMMIT_RANGE="origin/master...$TRAVIS_BRANCH"
 
 if ! git diff --name-only $COMMIT_RANGE | grep -qP '(test/|examples/|package\.json)'
 then
