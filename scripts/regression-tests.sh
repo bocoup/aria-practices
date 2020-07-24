@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMIT_RANGE="master...$TRAVIS_BRANCH"
+COMMIT_RANGE="origin/master...$TRAVIS_BRANCH"
 
 git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 git fetch origin master
