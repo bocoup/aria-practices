@@ -38,7 +38,9 @@ const openMenu = async function (t) {
 };
 
 const wait = async function () {
-    return new Promise(resolve => setTimeout(resolve, 5000));
+    console.log("waiting...");
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    console.log("done waiting...");
 }
 
 const waitForActivedescendantChange = async function (originalValue) {
