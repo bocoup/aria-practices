@@ -1,7 +1,7 @@
 'use strict';
 
 // This change will trigger tests
-// 1
+// 2
 
 const path = require('path');
 const test = require('ava');
