@@ -37,6 +37,10 @@ const openMenu = async function (t) {
   }, t.context.waitTime, 'Timeout waiting for menu to open after click');
 };
 
+const wait = async function () {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+}
+
 // Attributes
 
 ariaTest('"aria-haspopup" attribute on menu button', exampleFile, 'button-aria-haspopup', async (t) => {
@@ -105,6 +109,8 @@ ariaTest('"enter" on menu button', exampleFile, 'button-down-arrow-or-space-or-e
     .findElement(By.css(ex.menubuttonSelector))
     .sendKeys(Key.ENTER);
 
+  await wait();
+
   t.true(
     await t.context.session.findElement(By.css(ex.menuSelector)).isDisplayed(),
     'The popup should be displayed after sending button ENTER'
@@ -118,6 +124,8 @@ ariaTest('"down arrow" on menu button', exampleFile, 'button-down-arrow-or-space
   await t.context.session
     .findElement(By.css(ex.menubuttonSelector))
     .sendKeys(Key.ARROW_DOWN);
+
+  await wait();
 
   t.true(
     await t.context.session.findElement(By.css(ex.menuSelector)).isDisplayed(),
@@ -133,6 +141,8 @@ ariaTest('"space" on menu button', exampleFile, 'button-down-arrow-or-space-or-e
     .findElement(By.css(ex.menubuttonSelector))
     .sendKeys(Key.SPACE);
 
+  await wait();
+
   t.true(
     await t.context.session.findElement(By.css(ex.menuSelector)).isDisplayed(),
     'The popup should be displayed after sending button SPACE'
@@ -146,6 +156,8 @@ ariaTest('"up arrow" on menu button', exampleFile, 'button-up-arrow', async (t) 
   await t.context.session
     .findElement(By.css(ex.menubuttonSelector))
     .sendKeys(Key.ARROW_UP);
+
+  await wait();
 
   t.true(
     await t.context.session.findElement(By.css(ex.menuitemSelector)).isDisplayed(),
@@ -165,6 +177,8 @@ ariaTest('"enter" on role="menu"', exampleFile, 'menu-enter', async (t) => {
   await openMenu(t);
   let itemText = await items[0].getText();
   await menu.sendKeys(Key.ENTER);
+
+  await wait();
 
   t.is(
     itemText,
@@ -188,6 +202,8 @@ ariaTest('"enter" on role="menu"', exampleFile, 'menu-enter', async (t) => {
   itemText = await items[1].getText();
   await menu.sendKeys(Key.ARROW_DOWN, Key.ENTER);
 
+  await wait();
+
   t.is(
     itemText,
     await t.context.session.findElement(By.css(ex.lastactionSelector)).getAttribute('value'),
@@ -210,6 +226,8 @@ ariaTest('"enter" on role="menu"', exampleFile, 'menu-enter', async (t) => {
   itemText = await items[2].getText();
   await menu.sendKeys(Key.ARROW_DOWN, Key.ARROW_DOWN, Key.ENTER);
 
+  await wait();
+
   t.is(
     itemText,
     await t.context.session.findElement(By.css(ex.lastactionSelector)).getAttribute('value'),
@@ -231,6 +249,8 @@ ariaTest('"enter" on role="menu"', exampleFile, 'menu-enter', async (t) => {
   await openMenu(t);
   itemText = await items[3].getText();
   await menu.sendKeys(Key.ARROW_DOWN, Key.ARROW_DOWN, Key.ARROW_DOWN, Key.ENTER);
+
+  await wait();
 
   t.is(
     itemText,
@@ -259,6 +279,8 @@ ariaTest('"escape" on role="menu"', exampleFile, 'menu-escape', async (t) => {
     const itemText = await item.getText();
     await item.sendKeys(Key.ESCAPE);
 
+    await wait();
+
     t.not(
       itemText,
       await t.context.session.findElement(By.css(ex.lastactionSelector)).getAttribute('value'),
@@ -286,10 +308,12 @@ ariaTest('"down arrow" on role="menu"', exampleFile, 'menu-down-arrow', async (t
   for (let index = 0; index < items.length - 1; index++) {
 
     await menu.sendKeys(Key.ARROW_DOWN);
+    await wait();
     await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, index + 1);
   }
 
   await menu.sendKeys(Key.ARROW_DOWN);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, 0);
 });
 
@@ -300,11 +324,13 @@ ariaTest('"up arrow" on role="menu"', exampleFile, 'menu-up-arrow', async (t) =>
   const items = await t.context.queryElements(t, ex.menuitemSelector);
 
   await menu.sendKeys(Key.ARROW_UP);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, ex.numMenuitems - 1);
 
   for (let index = items.length - 1; index > 0; index--) {
 
     await menu.sendKeys(Key.ARROW_UP);
+    await wait();
     await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, index - 1);
   }
 
@@ -319,21 +345,25 @@ ariaTest('"home" on role="menu"', exampleFile, 'menu-home', async (t) => {
   // Send HOME to the menu while aria-activedescendant is the first item
 
   await menu.sendKeys(Key.HOME);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, 0);
 
   // Send HOME to the menu while aria-activedescendant is the second item
 
   await menu.sendKeys(Key.ARROW_DOWN, Key.HOME);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, 0);
 
   // Send HOME to the menu while aria-activedescendant is the third item
 
   await menu.sendKeys(Key.ARROW_DOWN, Key.ARROW_DOWN, Key.HOME);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, 0);
 
   // Send HOME to the menu while aria-activedescendant is the fourth item
 
   await menu.sendKeys(Key.ARROW_DOWN, Key.ARROW_DOWN, Key.ARROW_DOWN, Key.HOME);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, 0);
 });
 
@@ -347,21 +377,25 @@ ariaTest('"end" on role="menu"', exampleFile, 'menu-end', async (t) => {
   // Send END to the menu while aria-activedescendant is the first item
 
   await menu.sendKeys(Key.END);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, last);
 
   // Send END to the menu while aria-activedescendant is the second item
 
   await menu.sendKeys(Key.ARROW_DOWN, Key.END);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, last);
 
   // Send END to the menu while aria-activedescendant is the third item
 
   await menu.sendKeys(Key.ARROW_DOWN, Key.ARROW_DOWN, Key.END);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, last);
 
   // Send END to the menu while aria-activedescendant is the fourth item
 
   await menu.sendKeys(Key.ARROW_DOWN, Key.ARROW_DOWN, Key.ARROW_DOWN, Key.END);
+  await wait();
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, last);
 });
 
@@ -379,6 +413,7 @@ ariaTest('"character" on role="menu"', exampleFile, 'menu-character', async (t) 
 
   for (let test of charIndexTest) {
     await menu.sendKeys(test.sendChar);
+    await wait();
 
     await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, test.endIndex);
   }
