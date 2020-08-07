@@ -1,6 +1,6 @@
 'use strict';
 
-// Change 1
+// Change 2
 
 const path = require('path');
 const test = require('ava');
