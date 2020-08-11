@@ -101,6 +101,8 @@ ariaTest('role="menuitem" on li element', exampleFile, 'menuitem-role', async (t
 
 ariaTest('"enter" on menu button', exampleFile, 'button-down-arrow-or-space-or-enter', async (t) => {
 
+  await new Promise(resolve => setTimeout(resolve, 15000));
+
   await t.context.session
     .findElement(By.css(ex.menubuttonSelector))
     .sendKeys(Key.ENTER);
