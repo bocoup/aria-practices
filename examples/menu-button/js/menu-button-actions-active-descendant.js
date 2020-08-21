@@ -334,6 +334,11 @@ MenuButtonActionsActiveDescendant.prototype.handleBackgroundMousedown = function
 
 window.addEventListener('load', function () {
   var menuButtons = document.querySelectorAll('.menu-button-actions');
+  document.getElementById("action_output").value = "none";
+
+  function menuAction(node) {
+      document.getElementById("action_output").value = node.textContent.trim();
+  }
   for(var i=0; i < menuButtons.length; i++) {
     var menuButton = new MenuButtonActionsActiveDescendant(menuButtons[i], menuAction);
   }
