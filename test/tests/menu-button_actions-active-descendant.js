@@ -155,7 +155,7 @@ ariaTest('"up arrow" on menu button', exampleFile, 'button-up-arrow', async (t) 
 });
 
 // Note this passes locally, but fails in Travis
-ariaTest.failing('"enter" on role="menu"', exampleFile, 'menu-enter', async (t) => {
+ariaTest('"enter" on role="menu"', exampleFile, 'menu-enter', async (t) => {
 
   const menu = await t.context.session.findElement(By.css(ex.menuSelector));
   const items = await t.context.queryElements(t, ex.menuitemSelector);
