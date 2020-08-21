@@ -154,11 +154,16 @@ ariaTest('"up arrow" on menu button', exampleFile, 'button-up-arrow', async (t) 
   await assertAriaActivedescendant(t, ex.menuSelector, ex.menuitemSelector, ex.numMenuitems - 1);
 });
 
-// Note this passes locally, but fails in Travis
 ariaTest('"enter" on role="menu"', exampleFile, 'menu-enter', async (t) => {
 
   const menu = await t.context.session.findElement(By.css(ex.menuSelector));
   const items = await t.context.queryElements(t, ex.menuitemSelector);
+
+  // Click the "last action" box to scroll the menu into view before opening the menu and sending enter
+  // This prevents a bug where when you click the menu button, the menubar is opened and the page scrolls down
+  // to reveal the menu, placing the curser over the last menu item, which sets aria-activedescendent and
+  // enter then sets the last menu item action ("action 4").
+  await t.context.session.findElement(By.css(ex.lastactionSelector)).click();
 
   // Select the FIRST item: Send ENTER to the menu while aria-activedescendant is the first item
 
