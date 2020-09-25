@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index of ARIA Design Pattern Examples | WAI-ARIA Authoring Practices 1.1</title>
+  <title>Index of ARIA Design Pattern Examples | WAI-ARIA Authoring Practices 1.2</title>
   <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
   <link rel="stylesheet" href="css/core.css">
   <script src="js/examples.js"></script>
@@ -12,14 +12,14 @@
 </head>
 <body>
   <nav aria-label="ARIA Practices">
-    <a href="../">WAI-ARIA Authoring Practices 1.1</a>
+    <a href="../">WAI-ARIA Authoring Practices 1.2</a>
   </nav>
   <main>
     <h1>Index of ARIA Design Pattern Examples</h1>
     <p>
       This page includes the following indexes of example implementations of
       <a href="../#aria_ex">ARIA design patterns</a> included in
-      <a href="../">WAI-ARIA Authoring Practices 1.1.</a>
+      <a href="../">WAI-ARIA Authoring Practices 1.2.</a>
     </p>
     <ul>
       <li><a href="#examples_by_role_label">Examples by Role</a></li>
@@ -53,7 +53,12 @@
           </tr>
           <tr>
             <td><code>button</code></td>
-            <td><a href="button/button.html">Button</a></td>
+            <td>
+              <ul>
+                <li><a href="button/button_idl.html">Button  (IDL Version)</a></li>
+                <li><a href="button/button.html">Button</a></li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <td><code>checkbox</code></td>
@@ -72,11 +77,11 @@
             <td><code>combobox</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
               </ul>
             </td>
           </tr>
@@ -92,6 +97,7 @@
             <td><code>dialog</code></td>
             <td>
               <ul>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
                 <li><a href="dialog-modal/datepicker-dialog.html">Date Picker Dialog</a></li>
                 <li><a href="dialog-modal/dialog.html">Modal Dialog</a></li>
               </ul>
@@ -109,7 +115,8 @@
             <td><code>grid</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="dialog-modal/datepicker-dialog.html">Date Picker Dialog</a></li>
                 <li><a href="grid/dataGrids.html">Data Grid</a></li>
                 <li><a href="grid/LayoutGrids.html">Layout Grid</a></li>
@@ -126,7 +133,7 @@
               <ul>
                 <li><a href="carousel/carousel-1.html">Auto-Rotating Image Carousel</a></li>
                 <li><a href="checkbox/checkbox-1/checkbox-1.html">Checkbox  (Two State)</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
                 <li><a href="spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></li>
                 <li><a href="treeview/treeview-2/treeview-2a.html">Navigation Treeview  Using Computed Properties</a></li>
                 <li><a href="treeview/treeview-2/treeview-2b.html">Navigation Treeview  Using Declared Properties</a></li>
@@ -141,11 +148,12 @@
             <td><code>listbox</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
                 <li><a href="listbox/listbox-collapsible.html">Collapsible Dropdown Listbox</a></li>
+                <li><a href="listbox/listbox-grouped.html">Listbox  with Grouped Options</a></li>
                 <li><a href="listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></li>
                 <li><a href="listbox/listbox-scrollable.html">Scrollable Listbox</a></li>
               </ul>
@@ -162,8 +170,8 @@
                 <li><a href="menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a></li>
                 <li><a href="menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a></li>
                 <li><a href="menu-button/menu-button-links.html">Navigation Menu Button</a></li>
-                <li><a href="menubar/menubar-1/menubar-1.html">Navigation Menubar</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-navigation.html">Navigation Menubar</a></li>
                 <li><a href="toolbar/toolbar.html">Toolbar</a></li>
               </ul>
             </td>
@@ -172,8 +180,8 @@
             <td><code>menubar</code></td>
             <td>
               <ul>
-                <li><a href="menubar/menubar-1/menubar-1.html">Navigation Menubar</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-navigation.html">Navigation Menubar</a></li>
               </ul>
             </td>
           </tr>
@@ -183,20 +191,20 @@
               <ul>
                 <li><a href="menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a></li>
                 <li><a href="menu-button/menu-button-links.html">Navigation Menu Button</a></li>
-                <li><a href="menubar/menubar-1/menubar-1.html">Navigation Menubar</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-navigation.html">Navigation Menubar</a></li>
               </ul>
             </td>
           </tr>
           <tr>
             <td><code>menuitemcheckbox</code></td>
-            <td><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></td>
+            <td><a href="menubar/menubar-editor.html">Editor Menubar</a></td>
           </tr>
           <tr>
             <td><code>menuitemradio</code></td>
             <td>
               <ul>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
                 <li><a href="toolbar/toolbar.html">Toolbar</a></li>
               </ul>
             </td>
@@ -210,7 +218,7 @@
             <td>
               <ul>
                 <li><a href="menu-button/menu-button-links.html">Navigation Menu Button</a></li>
-                <li><a href="menubar/menubar-1/menubar-1.html">Navigation Menubar</a></li>
+                <li><a href="menubar/menubar-navigation.html">Navigation Menubar</a></li>
               </ul>
             </td>
           </tr>
@@ -218,10 +226,10 @@
             <td><code>option</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
               </ul>
             </td>
           </tr>
@@ -253,7 +261,7 @@
             <td><code>row</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="grid/LayoutGrids.html">Layout Grid</a></li>
                 <li><a href="table/table.html">Table</a></li>
                 <li><a href="treegrid/treegrid-1.html">Treegrid Email Inbox</a></li>
@@ -270,7 +278,7 @@
           </tr>
           <tr>
             <td><code>separator</code></td>
-            <td><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></td>
+            <td><a href="menubar/menubar-editor.html">Editor Menubar</a></td>
           </tr>
           <tr>
             <td><code>slider</code></td>
@@ -295,6 +303,7 @@
             <td><code>tab</code></td>
             <td>
               <ul>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
                 <li><a href="tabs/tabs-1/tabs.html">Tabs with Automatic Activation</a></li>
                 <li><a href="tabs/tabs-2/tabs.html">Tabs with Manual Activation</a></li>
               </ul>
@@ -308,6 +317,7 @@
             <td><code>tablist</code></td>
             <td>
               <ul>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
                 <li><a href="tabs/tabs-1/tabs.html">Tabs with Automatic Activation</a></li>
                 <li><a href="tabs/tabs-2/tabs.html">Tabs with Manual Activation</a></li>
               </ul>
@@ -317,6 +327,7 @@
             <td><code>tabpanel</code></td>
             <td>
               <ul>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
                 <li><a href="tabs/tabs-1/tabs.html">Tabs with Automatic Activation</a></li>
                 <li><a href="tabs/tabs-2/tabs.html">Tabs with Manual Activation</a></li>
               </ul>
@@ -368,12 +379,13 @@
             <td><code>aria-activedescendant</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="listbox/listbox-collapsible.html">Collapsible Dropdown Listbox</a></li>
+                <li><a href="listbox/listbox-grouped.html">Listbox  with Grouped Options</a></li>
                 <li><a href="listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></li>
                 <li><a href="listbox/listbox-scrollable.html">Scrollable Listbox</a></li>
                 <li><a href="menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a></li>
@@ -385,11 +397,11 @@
             <td><code>aria-autocomplete</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
               </ul>
             </td>
           </tr>
@@ -403,7 +415,7 @@
               <ul>
                 <li><a href="checkbox/checkbox-1/checkbox-1.html">Checkbox  (Two State)</a></li>
                 <li><a href="checkbox/checkbox-2/checkbox-2.html">Checkbox  (Mixed-State)</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
                 <li><a href="radio/radio-1/radio-1.html">Radio Group  Using Roving tabindex</a></li>
                 <li><a href="radio/radio-2/radio-2.html">Radio Group  Using aria-activedescendant</a></li>
                 <li><a href="toolbar/toolbar.html">Toolbar</a></li>
@@ -419,9 +431,14 @@
             <td>
               <ul>
                 <li><a href="accordion/accordion.html">Accordion</a></li>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
                 <li><a href="checkbox/checkbox-2/checkbox-2.html">Checkbox  (Mixed-State)</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="disclosure/disclosure-faq.html">Disclosure (Show/Hide) for Answers to Frequently Asked Questions</a></li>
                 <li><a href="disclosure/disclosure-img-long-description.html">Disclosure (Show/Hide) for Image Description</a></li>
                 <li><a href="disclosure/disclosure-navigation.html">Disclosure for Navigation Menus</a></li>
@@ -442,7 +459,9 @@
             <td><code>aria-describedby</code></td>
             <td>
               <ul>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
                 <li><a href="dialog-modal/alertdialog.html">Alert Dialog</a></li>
+                <li><a href="dialog-modal/datepicker-dialog.html">Date Picker Dialog</a></li>
                 <li><a href="dialog-modal/dialog.html">Modal Dialog</a></li>
                 <li><a href="feed/feed.html">Feed</a></li>
                 <li><a href="table/table.html">Table</a></li>
@@ -454,7 +473,7 @@
             <td>
               <ul>
                 <li><a href="accordion/accordion.html">Accordion</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
                 <li><a href="toolbar/toolbar.html">Toolbar</a></li>
               </ul>
             </td>
@@ -464,11 +483,12 @@
             <td>
               <ul>
                 <li><a href="accordion/accordion.html">Accordion</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="disclosure/disclosure-faq.html">Disclosure (Show/Hide) for Answers to Frequently Asked Questions</a></li>
                 <li><a href="disclosure/disclosure-img-long-description.html">Disclosure (Show/Hide) for Image Description</a></li>
                 <li><a href="disclosure/disclosure-navigation.html">Disclosure for Navigation Menus</a></li>
@@ -476,8 +496,8 @@
                 <li><a href="menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a></li>
                 <li><a href="menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a></li>
                 <li><a href="menu-button/menu-button-links.html">Navigation Menu Button</a></li>
-                <li><a href="menubar/menubar-1/menubar-1.html">Navigation Menubar</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-navigation.html">Navigation Menubar</a></li>
                 <li><a href="toolbar/toolbar.html">Toolbar</a></li>
                 <li><a href="treegrid/treegrid-1.html">Treegrid Email Inbox</a></li>
                 <li><a href="treeview/treeview-1/treeview-1a.html">File Directory Treeview  Using Computed Properties</a></li>
@@ -491,17 +511,14 @@
             <td><code>aria-haspopup</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="listbox/listbox-collapsible.html">Collapsible Dropdown Listbox</a></li>
                 <li><a href="menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a></li>
                 <li><a href="menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a></li>
                 <li><a href="menu-button/menu-button-links.html">Navigation Menu Button</a></li>
-                <li><a href="menubar/menubar-1/menubar-1.html">Navigation Menubar</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-navigation.html">Navigation Menubar</a></li>
                 <li><a href="toolbar/toolbar.html">Toolbar</a></li>
               </ul>
             </td>
@@ -521,12 +538,14 @@
             <td>
               <ul>
                 <li><a href="carousel/carousel-1.html">Auto-Rotating Image Carousel</a></li>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
                 <li><a href="checkbox/checkbox-1/checkbox-1.html">Checkbox  (Two State)</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="dialog-modal/alertdialog.html">Alert Dialog</a></li>
                 <li><a href="dialog-modal/datepicker-dialog.html">Date Picker Dialog</a></li>
                 <li><a href="dialog-modal/dialog.html">Modal Dialog</a></li>
@@ -534,13 +553,14 @@
                 <li><a href="grid/dataGrids.html">Data Grid</a></li>
                 <li><a href="grid/LayoutGrids.html">Layout Grid</a></li>
                 <li><a href="listbox/listbox-collapsible.html">Collapsible Dropdown Listbox</a></li>
+                <li><a href="listbox/listbox-grouped.html">Listbox  with Grouped Options</a></li>
                 <li><a href="listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></li>
                 <li><a href="listbox/listbox-scrollable.html">Scrollable Listbox</a></li>
                 <li><a href="menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a></li>
                 <li><a href="menu-button/menu-button-actions.html">Actions Menu Button  Using element.focus()</a></li>
                 <li><a href="menu-button/menu-button-links.html">Navigation Menu Button</a></li>
-                <li><a href="menubar/menubar-1/menubar-1.html">Navigation Menubar</a></li>
-                <li><a href="menubar/menubar-2/menubar-2.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-editor.html">Editor Menubar</a></li>
+                <li><a href="menubar/menubar-navigation.html">Navigation Menubar</a></li>
                 <li><a href="radio/radio-1/radio-1.html">Radio Group  Using Roving tabindex</a></li>
                 <li><a href="radio/radio-2/radio-2.html">Radio Group  Using aria-activedescendant</a></li>
                 <li><a href="spinbutton/datepicker-spinbuttons.html">Date Picker Spin Button</a></li>
@@ -561,8 +581,9 @@
             <td>
               <ul>
                 <li><a href="checkbox/checkbox-1/checkbox-1.html">Checkbox  (Two State)</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
+                <li><a href="combobox/combobox-select-only.html">Select-Only Combobox</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="dialog-modal/alertdialog.html">Alert Dialog</a></li>
                 <li><a href="dialog-modal/datepicker-dialog.html">Date Picker Dialog</a></li>
                 <li><a href="dialog-modal/dialog.html">Modal Dialog</a></li>
@@ -570,6 +591,7 @@
                 <li><a href="grid/dataGrids.html">Data Grid</a></li>
                 <li><a href="grid/LayoutGrids.html">Layout Grid</a></li>
                 <li><a href="listbox/listbox-collapsible.html">Collapsible Dropdown Listbox</a></li>
+                <li><a href="listbox/listbox-grouped.html">Listbox  with Grouped Options</a></li>
                 <li><a href="listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></li>
                 <li><a href="listbox/listbox-scrollable.html">Scrollable Listbox</a></li>
                 <li><a href="menu-button/menu-button-actions-active-descendant.html">Actions Menu Button  Using aria-activedescendant</a></li>
@@ -610,6 +632,8 @@
               <ul>
                 <li><a href="alert/alert.html">Alert</a></li>
                 <li><a href="carousel/carousel-1.html">Auto-Rotating Image Carousel</a></li>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
                 <li><a href="dialog-modal/datepicker-dialog.html">Date Picker Dialog</a></li>
               </ul>
             </td>
@@ -618,6 +642,7 @@
             <td><code>aria-modal</code></td>
             <td>
               <ul>
+                <li><a href="combobox/combobox-datepicker.html">Date Picker Combobox</a></li>
                 <li><a href="dialog-modal/alertdialog.html">Alert Dialog</a></li>
                 <li><a href="dialog-modal/datepicker-dialog.html">Date Picker Dialog</a></li>
               </ul>
@@ -630,18 +655,6 @@
           <tr>
             <td><code>aria-orientation</code></td>
             <td><a href="slider/slider-2.html">Slider  with aria-orientation and aria-valuetext</a></td>
-          </tr>
-          <tr>
-            <td><code>aria-owns</code></td>
-            <td>
-              <ul>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-both.html">Legacy ARIA 1.0 Combobox With Both List and Inline Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-list.html">Legacy ARIA 1.0 Combobox With List Autocomplete</a></li>
-                <li><a href="combobox/aria1.0pattern/combobox-autocomplete-none.html">Legacy ARIA 1.0 Combobox without Autocomplete</a></li>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
-                <li><a href="combobox/aria1.1pattern/listbox-combo.html">ARIA 1.1 Combobox with Listbox Popup</a></li>
-              </ul>
-            </td>
           </tr>
           <tr>
             <td><code>aria-posinset</code></td>
@@ -659,6 +672,7 @@
             <td><code>aria-pressed</code></td>
             <td>
               <ul>
+                <li><a href="button/button_idl.html">Button  (IDL Version)</a></li>
                 <li><a href="button/button.html">Button</a></li>
                 <li><a href="toolbar/toolbar.html">Toolbar</a></li>
               </ul>
@@ -666,7 +680,12 @@
           </tr>
           <tr>
             <td><code>aria-roledescription</code></td>
-            <td><a href="carousel/carousel-1.html">Auto-Rotating Image Carousel</a></td>
+            <td>
+              <ul>
+                <li><a href="carousel/carousel-1.html">Auto-Rotating Image Carousel</a></li>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <td><code>aria-rowcount</code></td>
@@ -690,7 +709,11 @@
             <td><code>aria-selected</code></td>
             <td>
               <ul>
-                <li><a href="combobox/aria1.1pattern/grid-combo.html">ARIA 1.1 Combobox with Grid Popup</a></li>
+                <li><a href="carousel/carousel-2-tablist.html">Auto-Rotating Image Carousel with a Tablist</a></li>
+                <li><a href="combobox/combobox-autocomplete-both.html">Editable Combobox With Both List and Inline Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-list.html">Editable Combobox With List Autocomplete</a></li>
+                <li><a href="combobox/combobox-autocomplete-none.html">Editable Combobox without Autocomplete</a></li>
+                <li><a href="combobox/grid-combo.html">Editable Combobox with Grid Popup</a></li>
                 <li><a href="listbox/listbox-rearrangeable.html">Listboxes with Rearrangeable Options</a></li>
                 <li><a href="tabs/tabs-1/tabs.html">Tabs with Automatic Activation</a></li>
                 <li><a href="tabs/tabs-2/tabs.html">Tabs with Manual Activation</a></li>
@@ -716,6 +739,7 @@
             <td><code>aria-valuemax</code></td>
             <td>
               <ul>
+                <li><a href="meter/meter.html">Meter</a></li>
                 <li><a href="slider/multithumb-slider.html">Horizontal Multi-Thumb Slider</a></li>
                 <li><a href="slider/slider-1.html">Horizontal Slider</a></li>
                 <li><a href="slider/slider-2.html">Slider  with aria-orientation and aria-valuetext</a></li>
@@ -727,6 +751,7 @@
             <td><code>aria-valuemin</code></td>
             <td>
               <ul>
+                <li><a href="meter/meter.html">Meter</a></li>
                 <li><a href="slider/multithumb-slider.html">Horizontal Multi-Thumb Slider</a></li>
                 <li><a href="slider/slider-1.html">Horizontal Slider</a></li>
                 <li><a href="slider/slider-2.html">Slider  with aria-orientation and aria-valuetext</a></li>
@@ -739,6 +764,7 @@
             <td><code>aria-valuenow</code></td>
             <td>
               <ul>
+                <li><a href="meter/meter.html">Meter</a></li>
                 <li><a href="slider/multithumb-slider.html">Horizontal Multi-Thumb Slider</a></li>
                 <li><a href="slider/slider-1.html">Horizontal Slider</a></li>
                 <li><a href="slider/slider-2.html">Slider  with aria-orientation and aria-valuetext</a></li>
@@ -762,7 +788,7 @@
     </section>
   </main>
   <nav aria-label="ARIA Practices">
-    <a href="../">WAI-ARIA Authoring Practices 1.1</a>
+    <a href="../">WAI-ARIA Authoring Practices 1.2</a>
   </nav>
 
 
