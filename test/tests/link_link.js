@@ -99,6 +99,9 @@ ariaTest(
     for (let i = 0; i < pageExamples.length; i++) {
       await t.context.session.get(t.context.url);
 
+      console.log('Testing link number', i);
+      console.log(t.context.waitTime);
+
       let ex = pageExamples[i];
       let linkLocator = By.css(ex.linkSelector);
       let linkElement = await t.context.session.findElement(linkLocator);
