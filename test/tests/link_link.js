@@ -100,7 +100,6 @@ ariaTest(
       await t.context.session.get(t.context.url);
 
       console.log('Testing link number', i);
-      console.log(t.context.waitTime);
 
       let ex = pageExamples[i];
       let linkLocator = By.css(ex.linkSelector);
@@ -113,7 +112,11 @@ ariaTest(
             return url != t.context.url;
           });
         }, t.context.waitTime)
-        .catch(() => {});
+        .catch((error) => {
+          console.log('error', error);
+        });
+
+      console.log('current url', await t.context.session.getCurrentUrl());
 
       t.not(
         await t.context.session.getCurrentUrl(),
