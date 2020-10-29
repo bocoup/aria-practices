@@ -99,6 +99,8 @@ ariaTest(
     for (let i = 0; i < pageExamples.length; i++) {
       await t.context.session.get(t.context.url);
 
+      console.log('Testing link number', i);
+
       let ex = pageExamples[i];
       let linkLocator = By.css(ex.linkSelector);
       let linkElement = await t.context.session.findElement(linkLocator);
@@ -110,7 +112,11 @@ ariaTest(
             return url != t.context.url;
           });
         }, t.context.waitTime)
-        .catch(() => {});
+        .catch((error) => {
+          console.log('error', error);
+        });
+
+      console.log('current url', await t.context.session.getCurrentUrl());
 
       t.not(
         await t.context.session.getCurrentUrl(),
